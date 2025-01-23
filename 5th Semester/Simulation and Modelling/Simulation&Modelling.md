@@ -68,9 +68,9 @@ Banking|Customer|Account Balance|Making Deposit|Arrival and Departure|Number of 
    Example: Bank -> The number of csutomers changes only when a customer arrives or when the service provided to the customer is completed.
 
 ### Continuous System 
-A continuous system is one in which the state variables change continuously over time.
+- State variables change continuously over time
 
-Example: Head of the water behind a dam
+   Example: Head of the water behind a dam
 
 
 ## Model 
