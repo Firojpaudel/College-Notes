@@ -89,5 +89,124 @@ Banking|Customer|Account Balance|Making Deposit|Arrival and Departure|Number of 
 
 - Deterministic Simulation Models contain no random variables and have a known set of inputs which will result in a unique set of outputs.
 
-- Stoichastic Simulation Models have one or more random varibales as inputs. Random input lead to random output.
+- Stoichastic Simulation Models have one or more random varibales as inputs. Random input lead to random output. 
+
+
+
+
+
+
+
+
+---
+
+## Model of a system
+A model is defined as a representation of a system for the purpose os studying the system.  
+The various types of models are:
+- Mathematical Model ot Physical Model
+- Static Model
+- Dynamic Model
+- Deterministic Models
+- Stoichastic Model 
+- Discrete Model
+
+### 1. Mathemtical Model 
+Use symbolic notation and the mathematical equations to represent a system  
+
+### 2. Static Model  
+Represents a system at a particular point of time and also known as Monte-Carlo Simulation
+
+### 3. Dynamic Model 
+Represents systems as they change over time. Example: Simulation of a bank  
+
+### 4. Deterministic Model
+Contains no random variables. They have a known set of inputs which will result in a unique set of outputs. 
+Example: Arrival of patients at a Dentist at the scheduled appointment time.
+
+### 5. Stoichastic Model 
+Has one or more random variables as input.  
+Random inputs lead to random output.  
+Example: Simulation of a block involves random interarrival and service time.  
+
+### 6. Discrete Event Simulation
+Modelling of a system in which the state variables changes only at a discrete set of points in time.    
+THe simulation models are analyzed by numerical rather than by analytical methods.
+
+## The Modelling Cycle
+
+```
+         +-------------------+
+         |                   |
+         |    Real World     |
+         |                   |
+         +-------------------+
+                  ↓
+         +-------------------+
+         |                   |
+         | Conceptual World  |
+         |                   |
+         +-------------------+
+                  ↓
+         +-------------------+
+         |                   |
+         |  Model Analysis   |
+         |                   |
+         +-------------------+
+                  ↓
+         +-------------------+
+         |                   |
+         |    Predictions    |
+         |                   |
+         +-------------------+
+                  ↑
+                  | 
+    (Cycle repeats from Real World)
+
+```
+
+## Principles of Mathematical Model
+
+```
+                        +-------------------+
+                        |                   |
+                        |   Object/System   |   Why? What purpose?
+                        |                   |
+                        +-------------------+
+                                 ↓
+                        +-------------------+
+                        |                   |
+                        | Variables or      |   Assumptions: Complex bahaviour of real world
+                        | Parameters        |
+                        |                   |
+                        +-------------------+
+                                 ↓
+                        +-------------------+
+                        |                   |   Solution: Analytically or Nnumerically
+Interpret results ----> | Model Predictions |
+                        |                   |
+                        +-------------------+
+                                 ↓ --------------------> validation
+                        +-------------------+
+                        |                   |
+                        |  If valid, then   |   
+                        |  Model is Accepted|
+                        |                   |
+                        +-------------------+
+
+```
+
+
+## Applications of Simulation
+- Epidemology
+- Biological Transport
+- Vehicular traffic
+- Optimal Stratagies in business
+- Economic
+- Financial Industry
+- Engineering
+- Software Development
+
+
+
+
 
