@@ -133,11 +133,12 @@ flowchart LR
     C --> D["Predictions"]
     D --> A
     
-    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style B fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style C fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style A stroke:#333,stroke-width:2px
+    style B stroke:#333,stroke-width:2px
+    style C stroke:#333,stroke-width:2px
+    style D stroke:#333,stroke-width:2px
 ```
+
 
 ## Principles of Mathematical Model
 
