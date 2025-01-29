@@ -1,0 +1,168 @@
+{
+  "main": {
+    "id": "ade07c703beec5fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "dd50d5d8e1369317",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "402fba7e25066b8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Simulation and Modelling/Simulation&Modelling.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Simulation&Modelling"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "29bb1cfb9d5e21ba",
+    "type": "split",
+    "children": [
+      {
+        "id": "5d74a8e32bdfda37",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f960b14a32e731a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b9ef5420c500ee7b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "46d922e73a9091d8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "a2976321bc0eb309",
+    "type": "split",
+    "children": [
+      {
+        "id": "13d33e53c6b6bb11",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "25143a1337ab636a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Simulation and Modelling/Simulation&Modelling.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Simulation&Modelling"
+            }
+          },
+          {
+            "id": "c2cbd18ea44fbac5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Simulation and Modelling/Simulation&Modelling.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Simulation&Modelling"
+            }
+          },
+          {
+            "id": "e4e34609a82bab2c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1a1177992d668e57",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Simulation and Modelling/Simulation&Modelling.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Simulation&Modelling"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "402fba7e25066b8c",
+  "lastOpenFiles": []
+}

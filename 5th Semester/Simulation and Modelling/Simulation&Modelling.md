@@ -92,14 +92,6 @@ Banking|Customer|Account Balance|Making Deposit|Arrival and Departure|Number of 
 - Stoichastic Simulation Models have one or more random varibales as inputs. Random input lead to random output. 
 
 
-
-
-
-
-
-
----
-
 ## Model of a system
 A model is defined as a representation of a system for the purpose os studying the system.  
 The various types of models are:
@@ -134,65 +126,48 @@ THe simulation models are analyzed by numerical rather than by analytical method
 
 ## The Modelling Cycle
 
-```
-         +-------------------+
-         |                   |
-         |    Real World     |
-         |                   |
-         +-------------------+
-                  ↓
-         +-------------------+
-         |                   |
-         | Conceptual World  |
-         |                   |
-         +-------------------+
-                  ↓
-         +-------------------+
-         |                   |
-         |  Model Analysis   |
-         |                   |
-         +-------------------+
-                  ↓
-         +-------------------+
-         |                   |
-         |    Predictions    |
-         |                   |
-         +-------------------+
-                  ↑
-                  | 
-    (Cycle repeats from Real World)
-
+```mermaid
+flowchart LR
+    A["Real World"] --> B["Conceptual World"]
+    B --> C["Model Analysis"]
+    C --> D["Predictions"]
+    D --> A
+    
+    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style B fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style C fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 ## Principles of Mathematical Model
 
-```
-                        +-------------------+
-                        |                   |
-                        |   Object/System   |   Why? What purpose?
-                        |                   |
-                        +-------------------+
-                                 ↓
-                        +-------------------+
-                        |                   |
-                        | Variables or      |   Assumptions: Complex bahaviour of real world
-                        | Parameters        |
-                        |                   |
-                        +-------------------+
-                                 ↓
-                        +-------------------+
-                        |                   |   Solution: Analytically or Nnumerically
-Interpret results ----> | Model Predictions |
-                        |                   |
-                        +-------------------+
-                                 ↓ --------------------> validation
-                        +-------------------+
-                        |                   |
-                        |  If valid, then   |   
-                        |  Model is Accepted|
-                        |                   |
-                        +-------------------+
+```mermaid
+flowchart TD
+    A[Object/System] --> B[Variables or Parameters]
+    B --> C[Model Predictions\nSolution: Analytically or Numerically]
+    C --> D{Validation}
+    D -->|If valid| E[Model is Accepted]
 
+    %% Interpret results arrow in the opposite direction
+    F[User] -->|Interpret results| C
+
+    %% Additional information with dotted lines
+    A -.-> G[Why? What purpose?]
+    B -.-> H[Assumptions: Complex behaviour of real world]
+    C -.-> I[Solution: Analytically or Numerically]
+
+    %% Styling for dotted lines
+    linkStyle 5 stroke-dasharray: 5,5
+    linkStyle 6 stroke-dasharray: 5,5
+    linkStyle 7 stroke-dasharray: 5,5
+
+    %% Add borders to the main blocks
+    style A stroke:#333,stroke-width:2px
+    style B stroke:#333,stroke-width:2px
+    style C stroke:#333,stroke-width:2px
+    style D stroke:#333,stroke-width:2px
+    style E stroke:#333,stroke-width:2px
+    style F stroke:#333,stroke-width:2px
 ```
 
 
