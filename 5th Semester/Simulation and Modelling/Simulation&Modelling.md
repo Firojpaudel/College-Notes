@@ -128,9 +128,10 @@ THe simulation models are analyzed by numerical rather than by analytical method
 
 ```mermaid
 flowchart LR
-    A["Real World"] --> B["Conceptual World"]
-    B --> C["Model Analysis"]
-    C --> D["Predictions"]
+    A[Real World] 
+    --> B[Conceptual World]
+    --> C[Model Analysis]
+    --> D[Predictions]
     D --> A
     
     style A stroke:#333,stroke-width:2px
@@ -138,7 +139,6 @@ flowchart LR
     style C stroke:#333,stroke-width:2px
     style D stroke:#333,stroke-width:2px
 ```
-
 
 ## Principles of Mathematical Model
 
@@ -153,9 +153,9 @@ flowchart TD
     F[User] -->|Interpret results| C
 
     %% Additional information with dotted lines
-    A -.-> G[Why? What purpose?]
-    B -.-> H[Assumptions: Complex behaviour of real world]
-    C -.-> I[Solution: Analytically or Numerically]
+    A -.- G[Why? What purpose?]
+    B -.- H[Assumptions: Complex behaviour of real world]
+    C -.- I[Solution: Analytically or Numerically]
 
     %% Styling for dotted lines
     linkStyle 5 stroke-dasharray: 5,5
@@ -173,14 +173,89 @@ flowchart TD
 
 
 ## Applications of Simulation
-- Epidemology
+- Epidemiology
 - Biological Transport
 - Vehicular traffic
-- Optimal Stratagies in business
+- Optimal Strategies in business
 - Economic
 - Financial Industry
 - Engineering
 - Software Development
+
+## Phases/Steps in Simulation Study
+
+```mermaid
+graph TD
+	subgraph PHASE 1
+	    A[Problem definition] --> B[Setting of objectives<br>and project plan]
+	    B --> C[Creation of conceptual model]
+    end
+    subgraph PHASE 2
+	    C --> D[Model building]
+	    C --> E[Data bollection]
+	    E --> F
+	    D --> F[Coding]
+	    F --> G{Verified?}
+	    G -- Yes --> H{Validated?}
+	    G -- No --> F
+	end
+	subgraph PHASE 3
+	    H -- Yes --> I[Experimental design]
+	    H -- No --> E
+	    H -- No --> D
+	    I --> J[Production runs and analysis]
+	    J --> K{More runs?}
+	end
+	subgraph PHASE 4
+	    K -- Yes --> J
+	    K -- Yes --> I
+	    K -- No --> L[Document programs<br>and report results]
+	    L --> M[Implementation]
+	end
+
+```
+
+
+## Summary-Simulation Study Steps
+
+1. Problem Formulation  
+a. Define the problem  
+b. Define the system  
+c. Establish performance metrics  
+d. Build conceptual model
+e. Document model assumptions
+
+2. Simulation Model Building
+a. Model translation
+b. Input data modelling  
+c. Verification  
+d. Validation  
+
+3. Experimental Design and Analysis  
+a. Preliminary runs  
+b. Final experiments  
+c. Analysis of results  
+
+4. Evaluate and Iterate  
+a. Documentation
+b. Model manual
+c. User manual
+
+5. Implementation  
+Puts to the production of simulation
+
+
+## Simulation Software
+
+- [Arena](www.arenasimulation.com)
+- [Automod](www.automod.com)
+- [Delmia/Quest](www.delmia.com)
+- [Extend](www.rockwellautomation.com/en-us/products/software/extend-simulations)
+- [Flexim](www.flexsim.com)
+- [MicroSim](www.microsim.com)
+- [ProModel](www.promodel.com)
+- [Simula](www.simula.no)
+- [WITNESS](www.lanner.com/products/witness) 
 
 
 
