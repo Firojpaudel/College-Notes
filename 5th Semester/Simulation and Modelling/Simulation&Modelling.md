@@ -187,31 +187,33 @@ flowchart TD
 ```mermaid
 graph TD
 	subgraph PHASE 1
-	    A[Problem definition] --> B[Setting of objectives<br>and project plan]
-	    B --> C[Creation of conceptual model]
+	    A[Problem definition] --- B[Setting of objectives<br>and project plan]
+	    B --- C[Creation of conceptual model]
     end
     subgraph PHASE 2
-	    C --> D[Model building]
-	    C --> E[Data bollection]
-	    E --> F
-	    D --> F[Coding]
-	    F --> G{Verified?}
-	    G -- Yes --> H{Validated?}
-	    G -- No --> F
+	    C --- D[Model building]
+	    C --- E[Data collection]
+	    E --- F
+	    D --- F[Coding]
+	    F --- G{Verified?}
+	    G -- Yes --- H{Validated?}
+	    G -- No --- F
 	end
 	subgraph PHASE 3
-	    H -- Yes --> I[Experimental design]
-	    H -- No --> E
-	    H -- No --> D
-	    I --> J[Production runs and analysis]
-	    J --> K{More runs?}
+	    H -- Yes --- I[Experimental design]
+	    H -- No --- E
+	    H -- No --- D
+	    I --- J[Production runs and analysis]
+	    J --- K{More runs?}
 	end
 	subgraph PHASE 4
-	    K -- Yes --> J
-	    K -- Yes --> I
-	    K -- No --> L[Document programs<br>and report results]
-	    L --> M[Implementation]
+	    K -- Yes --- J
+	    K -- Yes --- I
+	    K -- No --- L[Document programs<br>and report results]
+	    L --- M(Implementation)
 	end
+
+    linkStyle default interpolate linear
 
 ```
 
