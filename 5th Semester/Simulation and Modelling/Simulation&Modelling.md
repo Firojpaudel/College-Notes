@@ -247,6 +247,93 @@ c. User manual
 Puts to the production of simulation
 
 
+## Use of Differential and Partial Differential Equation in Modeling:
+
+### **Modeling:**
+- A mathematical model is an expression involving variables, functions or equations that represents a real-world phenomenon.
+- The purpose of a model is to understand a certain phenomenon and to make predictions about the future behaviour or outcomes of a system, event or quantity.
+- The figure below illustrates the modeling process:
+```mermaid
+graph LR
+    A[Real-world problem] -->|Formulate| B[Mathematical Model]
+    B --> |Solve various diff eqn|C[Mathematical Conclusion]
+    C --> |Interpret| D[Real-world prediction]
+    D -->|Test| B
+```
+---
+
+**_Example 1:_** RadioActive Decay
+
+Experiment shows that at each instant a radio-active substance decomposes, the rate of decomposition is propotional to the amount of substance present. Given a certain initial amount of a radioactive substance present at any time later.
+```math
+\text{Let, y = amount of substance present at any given time} \\
+\text{y}_0 = \text{amount of substance} \space \frac{\text{dy}}{\text{dt}} \space \alpha \space \text{y} \\
+\text{Working Equation:} \space
+\frac{\text{dy}}{\text{dt}} = -k\text{y}; \text{where} \space k \space \text{is propotionality decay constant}
+```
+<div align= "center">
+   <img src="../images/radioactive.png" width="400px"/>
+   <p><b>Fig 01:</b><i> Diagram illustrating Radioactive decay</i></p>
+</div>
+
+---
+**_Example 2:_** A freely falling body
+
+An object is falling under the influence of gravity as it falls downward. It is subjected to air resistance that creates an upward force propotional to the velocity of object. Obtain the differential equation that describes the velocity and the position of the object at any given time. Assume that the mass of body as $m$
+and acceleration due to gravity $g$ — which is constant throughout the planet.
+
+<div align="center">
+   <img  src="../images/example_2.png" height="200px">
+   <p><b>Fig 02:</b> <i>Example_2 diagram</i></p>
+</div>
+
+Applying relevant physical law; **Newtons Law of acceleration**:_(2nd Law)_
+```math
+F_{net} = ma
+```
+Substituting forces:
+```math
+mg- kv = ma
+```
+Then, substiuting $a$ with $\frac{dv}{dt}$; we get:
+
+```math
+mg - kv = m \frac{dv}{dt}
+```
+
+Rearranging terms:
+Dividing through by $m$:
+```math
+g- \frac{k}{m} v= \frac{dv}{dt}
+```
+On reagrranging: we get
+```math
+\frac{dv}{dt} + \frac{k}{m} v = g
+```
+This represents the first order diffrential equation.
+
+Likewise, the second order differential equation would look like:
+```math
+\frac{dv^2}{dt^2} + \frac{k}{m} \frac{dy}{dt} = g
+```
+---
+**_Example 3:_** RL Circuit
+
+A series RL circuit connected in a voltage source $V$ develops a model of circuit describing the circuit at any time $ t > 0$
+
+<div align="center">
+   <img src="../images/RL_ckt.png" width="300px">
+   <p><b>Fig 03:</b><i> RL Circuit</i></p>
+</div>
+
+Kirchoff's Voltage Law (KVL):
+```math
+V- iR - L \frac{di}{dt} = 0 \\
+or, L \frac{di}{dt} + iR = V \\
+or \frac{di}{dt} + \frac{R}{L}i = \frac{V}{L}
+```
+
+
 ## Simulation Software
 
 - [Arena](www.arenasimulation.com)
@@ -258,8 +345,4 @@ Puts to the production of simulation
 - [ProModel](www.promodel.com)
 - [Simula](www.simula.no)
 - [WITNESS](www.lanner.com/products/witness) 
-
-
-
-
 
