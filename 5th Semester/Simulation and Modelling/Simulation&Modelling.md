@@ -272,7 +272,7 @@ Experiment shows that at each instant a radio-active substance decomposes, the r
 \frac{\text{dy}}{\text{dt}} = -k\text{y}; \text{where} \space k \space \text{is propotionality decay constant}
 ```
 <div align= "center">
-   <img src="../images/radioactive.png" width="400px"/>
+   <img src="images/radioactive.png" width="400px"/>
    <p><b>Fig 01:</b><i> Diagram illustrating Radioactive decay</i></p>
 </div>
 
@@ -283,7 +283,7 @@ An object is falling under the influence of gravity as it falls downward. It is 
 and acceleration due to gravity $g$ — which is constant throughout the planet.
 
 <div align="center">
-   <img  src="../images/example_2.png" height="200px">
+   <img  src="images/example_2.png" height="200px">
    <p><b>Fig 02:</b> <i>Example_2 diagram</i></p>
 </div>
 
@@ -322,7 +322,7 @@ Likewise, the second order differential equation would look like:
 A series RL circuit connected in a voltage source $V$ develops a model of circuit describing the circuit at any time $ t > 0$
 
 <div align="center">
-   <img src="../images/RL_ckt.png" width="300px">
+   <img src="images/RL_ckt.png" width="300px">
    <p><b>Fig 03:</b><i> RL Circuit</i></p>
 </div>
 
