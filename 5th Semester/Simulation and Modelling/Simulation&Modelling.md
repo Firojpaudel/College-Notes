@@ -224,11 +224,11 @@ graph TD
 a. Define the problem  
 b. Define the system  
 c. Establish performance metrics  
-d. Build conceptual model
+d. Build conceptual model  
 e. Document model assumptions
 
-2. Simulation Model Building
-a. Model translation
+2. Simulation Model Building  
+a. Model translation  
 b. Input data modelling  
 c. Verification  
 d. Validation  
@@ -239,9 +239,9 @@ b. Final experiments
 c. Analysis of results  
 
 4. Evaluate and Iterate  
-a. Documentation
-b. Model manual
-c. User manual
+a. Documentation  
+b. Model manual  
+c. User manual  
 
 5. Implementation  
 Puts to the production of simulation
@@ -258,16 +258,16 @@ graph LR
     A[Real-world problem] -->|Formulate| B[Mathematical Model]
     B --> |Solve various diff eqn|C[Mathematical Conclusion]
     C --> |Interpret| D[Real-world prediction]
-    D -->|Test| B
+    D -->|Test| A
 ```
 ---
 
-**_Example 1:_** RadioActive Decay
+**_Example 1:_ RadioActive Decay**
 
 Experiment shows that at each instant a radio-active substance decomposes, the rate of decomposition is propotional to the amount of substance present. Given a certain initial amount of a radioactive substance present at any time later.
 ```math
 \text{Let, y = amount of substance present at any given time} \\
-\text{y}_0 = \text{amount of substance} \space \frac{\text{dy}}{\text{dt}} \space \alpha \space \text{y} \\
+\text{y}_0 = \text{initial amount of substance} \\ \space \frac{\text{dy}}{\text{dt}} \space \alpha \space \text{y} \\
 \text{Working Equation:} \space
 \frac{\text{dy}}{\text{dt}} = -k\text{y}; \text{where} \space k \space \text{is propotionality decay constant}
 ```
@@ -277,7 +277,7 @@ Experiment shows that at each instant a radio-active substance decomposes, the r
 </div>
 
 ---
-**_Example 2:_** A freely falling body
+**_Example 2:_ A freely falling body**
 
 An object is falling under the influence of gravity as it falls downward. It is subjected to air resistance that creates an upward force propotional to the velocity of object. Obtain the differential equation that describes the velocity and the position of the object at any given time. Assume that the mass of body as $m$
 and acceleration due to gravity $g$ — which is constant throughout the planet.
@@ -332,6 +332,7 @@ V- iR - L \frac{di}{dt} = 0 \\
 or, L \frac{di}{dt} + iR = V \\
 or \frac{di}{dt} + \frac{R}{L}i = \frac{V}{L}
 ```
+describes current at any time t and is a **differential equation of first degree.**
 
 
 ## Simulation Software
