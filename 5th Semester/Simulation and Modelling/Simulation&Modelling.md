@@ -328,9 +328,9 @@ A series RL circuit connected in a voltage source $V$ develops a model of circui
 
 Kirchoff's Voltage Law (KVL):
 ```math
-V- iR - L \frac{di}{dt} = 0 \\
-or, L \frac{di}{dt} + iR = V \\
-or \frac{di}{dt} + \frac{R}{L}i = \frac{V}{L}
+V- iR - L \frac{di}{dt} = 0 \\  
+or, L \frac{di}{dt} + iR = V \\  
+or \frac{di}{dt} + \frac{R}{L}i = \frac{V}{L}  
 ```
 describes current at any time t and is a **differential equation of first degree.**
 
@@ -494,20 +494,20 @@ describes current at any time t and is a **differential equation of first degree
 ``` math
         \frac{d}{dx}(k.(\frac{dT}{dx})) + \frac{d}{dy}(k.(\frac{dT}{dy})) + \frac{d}{dz}(k.(\frac{dT}{dz})) + qv = \rho \space C_p \frac{dT}{dt}
 ```
-    >- where k is the material conductivity.
-    >- $qv$ is the rate at which energy is generated per unit volume of the medium.
-    >- $\rho$ is the density
-    >- $C_p$ is the specific heat capacity.
+- where k is the material conductivity.
+- $qv$ is the rate at which energy is generated per unit volume of the medium.
+- $\rho$ is the density
+- $C_p$ is the specific heat capacity.
 
     This equation is also known as the Fourier-Biot equation and provides the basic tool for heat conduction analysis.
 ---
 
 ## Interactive and Feedback System in Simulation
 
-> #### Interactive Systems
+> ### Interactive Systems
 - Interactive Systems are the computer systems characterized by significant amount of interaction between humans and the computer. Macintosh and Windows computer operating systems are prime examples of graphical interactive systems.
 
 - Editors, CAD-CAM(Computer Aided Design - Computer Aided Manufacture) system, and data entry systems are all computer systems involving a high degree of human - computer interaction. Games and simulations are interactive systems. Web browsers and integrated development environments (IDE) are also examples of very complex interactive systems.
 
-> #### Feedback Systems
+> ### Feedback Systems
 
