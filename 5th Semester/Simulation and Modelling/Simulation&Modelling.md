@@ -678,3 +678,96 @@ The counting process `N(t)` is a non-stationary poisson process if
 
 where lambda(t) = arrival rate of time t  
 dt = differential sized interval
+
+
+### *Q. Differentiate between clock time and simulation time used in system simulation.*
+
+| Clock Time | Simulation Time |
+|------------|-----------------|
+| It is the total amount of time for which the CPU remains active. | It is the total amount of time that CPU spends for simulation. |
+| Clock time is measured continuously through all the operations that a CPU undergoes. | Simulation time only deals with the amount of time elevated for simulation. |
+| It is usually more. | It is usually less. |
+
+***Example:*** 
+
+Let us take an example where CPU is running for 6 seconds and now it performs a calculation for 0.01 second and stops the calculation, again the CPU runs for 5 more seconds.
+
+So, ***Clock Time*** = ***Total time CPU is active*** = 6 + 5 = 11 seconds
+
+Similarly, ***Simulation Time*** = ***Total time CPU spends for calculation*** = 0.01 seconds
+
+----
+
+## Hybrid Simulation
+> *Q. Explain Hybrid simulation with example.*
+
+- In reality, the system is of neither a pure continuous nor a pure discrete nature. For simulating such systems, the combination of analog and digital computers is used. Such setup is known as hybrid Computers.
+- The simulation provided by the hybrid computers is known as hybrid simulation.
+- The form taken by hybrid simulation depends upon the application. One computer may be simulating the system being studied while other is providing a simulation of the environment in which the system operates.
+- It is also possible that the system being simulated is an interconnection of continuous and discrete systems, which can be best modeled by an analog and digital computer being linked together.
+- The major difficulty in use of hybrid simulation is it requires high speed converters to transform signals from analog to digital form and vice-versa.
+***
+
+
+## Monte Carlo Simulation
+> *Q. Explain Monte Carlo Simulation with example.*
+
+- Monte Carlo simulation is a computerized mathematical technique to generate random sample data based on some known distribution for numerical experiments.
+- This method is applied to risk quantitative analysis, decision-making problems. This method is used by the professionals of various profiles like finance, project management, energy, manufacturing, engineering, research and development, insurance, oil & gas, transportation, and many more.
+- Following are the three important characteristics of Monte Carlo Simulation:
+    - Its output must generate random samples.
+    - Its input distribution must be known.
+    - Its result must be known while performing an experiment.
+
+```mermaid
+flowchart TD
+    B((Distributing Input))
+    B --> C[/Step 1: Sampling of random variables i.e. Random variables sample generation/]
+    C --> D((Input Variable))
+    D --> E[/Step 2: Experimenting numerical problems which Leads to performance analysis/]
+    E --> F((Output Variable))
+    F --> G[/Step 3: Performing statistical analysis on output result/]
+    G --> H((Output result based on statistical analysis))
+    
+    I[Analyzing the model: F = gX]
+    D --> I
+    I --> F
+    I --> H
+```
+
+<div align="center">
+   <p><b>Fig 03:</b><i> Flowchart of Monte Carlo Simulation</i></p>
+</div>
+
+
+***Example:***
+
+Determine the value of *`PI(π)`* using Monte Carlo Simulation.
+
+>>>>>> Diagram Xa haii
+
+
+$$
+\frac{Area of quadrant of circle}{Area of Rectangle} = \frac{Number of points inside the curve}{Number of points inside the rectangle}
+$$
+
+$$
+or, \frac{\frac{1}{4} * π * r^2}{r^2} = \frac{n}{N}
+$$
+
+$$
+or, π = \frac{4n}{N}
+$$
+
+We use random number generator method to determine the sample points that lie inside or outside the curve. let (x0,y0) be an initial guess for the sample point then from a linear congruential method of random number generation 
+
+$$ 
+x_{i+1} = (a*x_i + c) \mod m 
+$$
+
+$$ 
+y_{i+1} = (a*y_i + c) \mod m 
+$$
+
+where a and c are constants, m is the  upper limit of generated random numbers.
+$$\text{If } y \leq y_i \text{ then increment } n.$$
