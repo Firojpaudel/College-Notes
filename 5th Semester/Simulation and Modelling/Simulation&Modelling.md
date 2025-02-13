@@ -598,3 +598,81 @@ This is a **second-order differential equation** describing the system's respons
 > Event-to-Event Model:
 - It is also known as the next event model. In this the computer advances the time to the occurence of the next event. So it shifts from one event to the another event and the system state does not change in between. A track of the current time is kept when something interesting happens to the system.  
 
+## Clock time in system simulation
+### 1. Fixed Step Model
+
+```mermaid
+flowchart TD
+    S(Start) --> R(Record Input Dates)
+    R --> G(Generate and store random data if any required)
+    G --> I(Initialize time t = 0)
+    I --> T(t = t + r)
+    T --> F[Find all those events that occur, update the system state]
+    F --> E[Extract their effects on statistics being gathered]
+    E --> D{End of statistics?}
+    D -- Yes --> O[Output desired statistics]
+    O --> X(Stop)
+    D -- No --> T
+```
+
+
+### 2. Event-to-event Model (Next-Event Simulation)
+
+```mermaid
+flowchart TD 
+    S(Start) --> R[/Read Input Data/]
+    R --> G[Generate and store random data if any required]
+    G --> I[Initialize]
+    I --> F[Find next potential event, and its time of occurrence]
+    F --> L[Let the event occur, update the system state and clock]
+    L --> E[Extract its effect on statistics being gathered]
+    E --> D{End of simulation?}
+    D -- Yes --> O(Output derived statistics)
+    O --> X(Stop)
+    D -- No --> F
+```
+
+## Non stationary Possion process and Stationary Poissons Process
+
+### Poissons Process
+The non-stationary Poissons process is a Poissons process for which the arrival rate varies with time.  
+More specifically it can be defined as follows:  
+a. The process has independent increments.  
+b. $P_r[N(t+dt)-N(t)]$
+
+$= 0]= 1-$/lambda(t)dt$
+
+
+Where lambda(t) = the arrival rate at time t  
+dt = differential sized interval  
+
+The definition is identiacl to the stationary Poissons process, with the exception that the arrival rate lambda(t) is now a function of time.  
+### Stationary Poisson Process
+A counting process $N(t)$ is a stationary Poisson process with rate lambda if:  
+> a. THe process has independent increments  
+> b. The process has stationary increments  
+> c. $P_r[N(t+dt)-N(t)]$
+
+bracket wala lekhna Baki  
+
+A non-stationary Poisson process can be transferred into a stationary Poisson process with arrival rate 1.  
+
+## Arrival Pattern
+Q. Define arrival pattern. Explain non-stationary Poisson process.  
+
+Arrival defines the way customers enter the system. Mostly the arrivals are random with random intervals between two adjacent arrivals.  
+Typically the arrival is described by a random distribution of intervals also called arrival pattern.  
+Arrivals may occur at scheduled times or at random times. When at random times, the inter arriva time are usually characterized by a probability distribution and most important model for random arrival i.e. the poisson process. IN schedule arrival interarrival time of customer are constant.
+
+
+### Non Stationary Poisson Process
+The non-stationary poisson process is a poisson process for which the arrival rate varies with time. More specifically, it can be defined as follows:
+
+The counting process `N(t)` is a non-stationary poisson process if
+    
+- the process has independent increments.
+- $P_r[N(t+dt)-N(t)]$ = 
+
+
+where lambda(t) = arrival rate of time t  
+dt = differential sized interval
