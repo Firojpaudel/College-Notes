@@ -450,10 +450,12 @@ describes current at any time t and is a **differential equation of first degree
     ``` math
     Mx'' = KF(t) - Dx' - Kx
     ```
-    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Diagram Needed
+    <div align="center">
+        <img src="./images/K.png" width= '500px' />
+        <p><b>Fig: </b><i>Automobile Suspension System</i></p>
+    </div>
 
-
-    Fig: Automobile Suspension System
+    
 
     Suppose a variable representing the input `F(t)` is supplied, assume there exists variables representing `-x`, `x'`. These three variables can be scaled and added to produce `Mx''`. Integrating it with a scale factor `1/M` produces `x'`. Changing sign produces `-x'`, further integrating produces `-x`, a further sign inverter is included to produce `+x` as an output.
 ---
