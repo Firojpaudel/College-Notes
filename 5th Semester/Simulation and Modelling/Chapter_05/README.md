@@ -151,3 +151,50 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
 - The selection of the values for $a,c,m$ and $x_0$ drastically affects the stastical properties and the cycle length
 
 - The random integers $x_i$ are being generated in $[ 0, m-1]$
+
+2. **PRNG Using Linear Congruential Method:**
+
+    1. We can generate random numbers from random integers $X_i$ of the LCM by:
+    $$X_{i+1}= (ax_i +c)\mod m ; i = 0,1,2,3 ...$$
+
+    2. Convert the integer $X_i$ to random numbers:
+    $$R_i = \frac{X_i}{m}; i = 1,2, 3 ...$$
+
+    ***Example:***
+
+    1. Generate Random numbers with following data:
+    $$X_0=0; a=5 ; c=3 \space \& \space m=7$$
+
+    ***Answer:***
+
+    For $i = 0$
+    $$X_{i+1} = (ax_i + c)\mod m$$
+
+    $$X_1 = (aX_0 + c)\mod m \\ =(5\times 0 + 3) \mod 7 \\ = 3$$
+
+    $$\therefore R_1 = \frac{X_1}{m} = \frac{3}{7} = 0.43$$
+
+    For $i = 1$
+    $$X_2 = (aX_1 + c)\mod m \\ =(5\times 3 + 3) \mod 7 \\ = 4$$
+
+    $$\therefore R_2 = \frac{X_2}{m} = \frac{4}{7} = 0.57$$
+
+    For $i = 2$
+    $$X_3 = (aX_2 + c)\mod m \\ =(5\times 4 + 3) \mod 7 \\ = 2$$
+
+    $$\therefore R_3 = \frac{X_3}{m} = \frac{2}{7} = 0.29$$
+
+    For $i = 3$
+    $$X_4 = (aX_3 + c)\mod m \\ =(5\times 2 + 3) \mod 7 \\ = 6$$
+
+    $$\therefore R_4 = \frac{X_4}{m} = \frac{6}{7} = 0.86$$
+
+    For $i = 4$
+    $$X_5 = (aX_4 + c)\mod m \\ =(5\times 6 + 3) \mod 7 \\ = 5$$
+
+    $$\therefore R_5 = \frac{X_5}{m} = \frac{5}{7} = 0.714$$
+
+    For $i = 5$
+    $$X_6 = (aX_5 + c)\mod m \\ =(5\times 5 + 3) \mod 7 \\ = 0$$
+
+    $$\therefore R_6 = \frac{X_6}{m} = \frac{0}{7} = 0
