@@ -12,14 +12,14 @@ Semester|Subject|Source|
 
 | S.N. | Chapters | Status |
 |------|----------|--------|
-| 1. | Introduction to Simulation | ✅ | 
-| 2. | Simulation of Continuous and Discrete System | ✅ | 
-| 3. | Queing System | |
-|4. | Markov Chains | |
-|5. | Random Numbers | |
-|6. | Verification and Validation | |
-|7. | Analysis of Simulation Output | |
-|8. | Simulation of Computer Systems | | 
+| 1. | Introduction to Simulation |✅| 
+| 2. | Simulation of Continuous and Discrete System |✅| 
+| 3. | Queing System |✅|
+|4. | Markov Chains |⏳|
+|5. | Random Numbers |⏳|
+|6. | Verification and Validation |🕒|
+|7. | Analysis of Simulation Output |🕒|
+|8. | Simulation of Computer Systems |🕒| 
 
 
 #### Contributors
