@@ -97,7 +97,7 @@ When the final three parameters are not specified (eg. M/M/1), it is assumed N =
 Characteristics|Symbol|Description
 -|-|-|
 A - Interarrival Distribution|$D$ <br> $C_k$ <br>$E_k$<br>$G$<br>$G_d$<br>$G_{f0}$<br>$H_k$<br>$M$<br>$ME$<br>$MAP$<br>$PH$|Deterministic<br>K Phase<br>Enlarge<br>General<br>General/Independent<br>Goemetric(dicrete)<br>Hyper exponential<br>Exponential(Markov)<br>Matrix exponential<br>Markov Arrival Process<br>Phase Type|
-B - Series Time Distribution|$D$<br>$C_k$<br>$E_k$<br>$G$<br>$HI$<br>$KGFO$<br>$MK$<br>$M$<br>$M$<br>$MB$<br>$MAP$<br>$PG$<br>$SM$|Deterministic<br>K-Phases<br>Enlarge(K-Phase)<br>General<br>General Independent<br>Geometric (discrete)<br>Hyper Exponential<br>Exponential<br>Matrix exponential<br>Markov Arrival Process<br>Phase type<br>Semi Markov
+B - Series Time Distribution|$D$<br>$C_k$<br>$E_k$<br>$G$<br>$HI$<br>$KGFO$<br>$MK$<br>$M$<br>$MB$<br>$MAP$<br>$PG$<br>$SM$|Deterministic<br>K-Phases<br>Enlarge(K-Phase)<br>General<br>General Independent<br>Geometric (discrete)<br>Hyper Exponential<br>Exponential<br>Matrix exponential<br>Markov Arrival Process<br>Phase type<br>Semi Markov
 
 
 **Example 1:**
