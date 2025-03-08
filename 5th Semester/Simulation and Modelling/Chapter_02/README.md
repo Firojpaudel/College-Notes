@@ -41,74 +41,7 @@
 - The general method to apply analog computers for the simulation of continuous system models involve following components:
 
 
-    > #### Integrator
-    ```
-        +--------+
-    --->|   ∫    | --->
-        +--------+
-    ```
-
-    > #### Summer (Three Instances)
-    ```
-        +-----------+
-    --->|           |
-    --->|     Σ     | --->
-    --->|           |
-        +-----------+
-    ```
-
-    > #### Differentiator
-    ```
-        +-----------+
-    --->|   d/dt    | --->
-        +-----------+
-    ```
-
-    > #### Inverter
-    ```
-        +-----------+
-    --->|     -     | --->
-        +-----------+
-    ```
-
-    > #### Multiplier
-    ```
-        +-----------+
-    --->| A         |
-        |     ×     |--->
-    --->| B         |
-        +-----------+
-    ```
-
-    > #### Divider
-    ```
-        +-----------+
-    --->|A          |
-        |     ÷     |--->
-    --->|B          |
-        +-----------+
-    ```
-    ---
-
-    ***Example : Automatic Suspension Problem***
-
-    The general method by which analog computers are applied can be demonstrated by the second order differential equation
-    ``` math
-    Mx'' + Dx' + Kx = KF(t)
-    ```
-    Solving the equation for the highest order derivative gives
-    ``` math
-    Mx'' = KF(t) - Dx' - Kx
-    ```
-    <div align="center">
-        <img src="./images/K.png" width= '500px' />
-        <p><b>Fig: </b><i>Automobile Suspension System</i></p>
-    </div>
-
-    
-
-    Suppose a variable representing the input `F(t)` is supplied, assume there exists variables representing `-x`, `x'`. These three variables can be scaled and added to produce `Mx''`. Integrating it with a scale factor `1/M` produces `x'`. Changing sign produces `-x'`, further integrating produces `-x`, a further sign inverter is included to produce `+x` as an output.
----
+![fig1](images/fig1.webp)
 
 
 ## Continuous System Models
@@ -133,7 +66,7 @@
     a_n(x) d_n \frac{y}{dx^n} + a_{(n-1)}(x) + \frac{d_{(n-1)}(y)}{dx^(n-1)} + ... +a_1(x) \frac{dy}{dx}+ a_0(x)y = f(x)
     ```
 
-    where `a_n(x), a_(n-1)(x), a_1(x), a_0(x)` are functions of `x` and `f(x)` is a function of `x`.
+    where $$a_{n}(x), a_{(n-1)}(x), a_{1}(x), a_{0}(x)$$ are functions of `x` and `f(x)` is a function of `x`.
 --- 
 
 > ### Partial Differential Equation
@@ -394,11 +327,12 @@ flowchart TD
 
 Determine the value of *`PI(π)`* using Monte Carlo Simulation.
 
->>>>>> Diagram Xa haii
+![fig2](images/fig2.webp)
 
 
 $$
-\frac{Area of quadrant of circle}{Area of Rectangle} = \frac{Number of points inside the curve}{Number of points inside the rectangle}
+\frac{Area\ of\ quadrant\ of\ circle}{Area\ of\ Rectangle} = \frac{Number\ of\ points\ inside\ the\ curve}{Number\ of\ points\ inside\ the\ rectangle}
+
 $$
 
 $$
@@ -412,11 +346,11 @@ $$
 We use random number generator method to determine the sample points that lie inside or outside the curve. let (x0,y0) be an initial guess for the sample point then from a linear congruential method of random number generation 
 
 $$ 
-x_{i+1} = (a*x_i + c) \mod m 
+x_{i+1} = (ax_i + c) \mod m 
 $$
 
 $$ 
-y_{i+1} = (a*y_i + c) \mod m 
+y_{i+1} = (ay_i + c) \mod m 
 $$
 
 where a and c are constants, m is the  upper limit of generated random numbers.
