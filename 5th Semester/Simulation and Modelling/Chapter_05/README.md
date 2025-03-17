@@ -141,10 +141,10 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
 2. **Linear Congruential Method:**
 > By D.H. Lebmer
 
-- To produce a sequence of integers $X_1$, $X_2 ... $ between $0$ and $(m -1)$ by following a recursive relationship.
+- To produce a sequence of integers $X_1, X_2 ...$ between $0$ and $(m -1)$ by following a recursive relationship.
 
 > ***Recursive Relationship***:
-> $$ X_{i+1} = (ax_i + c) \mod m ; \space i= 0, 1, 2 ...$$
+> $$X_{i+1} = (ax_i + c) \mod m ; \space i= 0, 1, 2 ...$$
 
 - Assumption: $m > 0$ and $a < m$, $c< m$, $x_0 < m$.
 
@@ -164,10 +164,8 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
 
     1. Generate Random numbers with following data:
 
-    $
-    X_0=0; a=5 ; c=3 \space \& \space m=7
-    $
-    
+    $X_0=0; a=5 ; c=3 \space \& \space m=7$
+
     ***Answer:***
 
     For $i = 0$
@@ -244,11 +242,11 @@ $H_1: R_i \nsim U[0,1] \longrightarrow \text{Not uniformly distributed}$
 The null hypothesis $H_0$, reads that the numbers are distributed uniformly on the interval $[0,1]$. Failure to reject null hypothesis means that the evidence of non uniformly has been detected by the test.
 
 ##### Level of significance:
-For each test, a level of significance, i.e., '$\alpha$' must be stated. The '$\alpha$' is probability of rejecting the null hypothesis when the null hypothesis is true.
+For each test, a level of significance, i.e., $'\alpha\space'$ must be stated. The $'\alpha\space'$ is probability of rejecting the null hypothesis when the null hypothesis is true.
 
 $$\alpha = \text{P}[\text{reject} \space H_0 | H_0 \space \text{true}]$$
 
-The decision maker sets the value of $\alpha$ for any frequency '$\alpha$' is set to $0.01$ or $0.05$.
+The decision maker sets the value of $\alpha$ for any frequency $'\alpha\space'$ is set to $0.01$ or $0.05$.
 
 The following steps shows **KS-Test** procedure for testing against a uniform-cdf $\longrightarrow$ cummulative distribution function.
 
