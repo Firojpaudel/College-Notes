@@ -141,10 +141,10 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
 2. **Linear Congruential Method:**
 > By D.H. Lebmer
 
-- To produce a sequence of integers $X_1$, $X_2 ... $ between $0$ and $(m -1)$ by following a recursive relationship.
+- To produce a sequence of integers $X_1, X_2 ...$ between $0$ and $(m -1)$ by following a recursive relationship.
 
 > ***Recursive Relationship***:
-> $$ X_{i+1} = (ax_i + c) \mod m ; \space i= 0, 1, 2 ...$$
+> $$X_{i+1} = (ax_i + c) \mod m ; \space i= 0, 1, 2 ...$$
 
 - Assumption: $m > 0$ and $a < m$, $c< m$, $x_0 < m$.
 
@@ -162,8 +162,7 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
 
     ***Example:***
 
-    1. Generate Random numbers with following data:
-    $$X_0=0; a=5 ; c=3 \space \& \space m=7$$
+    1. Generate Random numbers with following data:$X_0=0; a=5 ; c=3 \space \& \space m=7$.
 
     ***Answer:***
 
@@ -229,3 +228,218 @@ Two different testing are available:
 2. **Chi Square Test**
 
 Both of these test measure the degree of agreement between the distribution of samples of generated random numbers and the theoritical uniform distribution.
+
+---
+#### Test Used For KS Test
+In testing for uniformity, the hypothesis are as follows:
+
+$H_0: R_i \sim  U[0,1] \longrightarrow \text{Every random numbers is unformly distributive}$
+
+$H_1: R_i \nsim U[0,1] \longrightarrow \text{Not uniformly distributed}$
+
+The null hypothesis $H_0$, reads that the numbers are distributed uniformly on the interval $[0,1]$. Failure to reject null hypothesis means that the evidence of non uniformly has been detected by the test.
+
+##### Level of significance:
+For each test, a level of significance, i.e., $'\alpha\space'$ must be stated. The $'\alpha\space'$ is probability of rejecting the null hypothesis when the null hypothesis is true.
+
+$$\alpha = \text{P}[\text{reject} \space H_0 | H_0 \space \text{true}]$$
+
+The decision maker sets the value of $\alpha$ for any frequency $'\alpha\space'$ is set to $0.01$ or $0.05$.
+
+The following steps shows **KS-Test** procedure for testing against a uniform-cdf $\longrightarrow$ cummulative distribution function.
+
+---
+***Step 1:***
+Rank the data from smallest to largest
+
+Let $R_i$ denote the $\text{i}^\text{th}$ smallest observation so that:
+$$R_{(1)} \leq R_{(2)} \leq R_{(3)} \leq ... \leq R_{(n)}$$
+
+---
+***Step 2:*** Compute:
+
+```math
+D^+ = \max_{1 \leq i \leq N} \left\{ \dfrac{i}{N} - R(i) \right\}
+```
+
+```math
+D^+ \text{ is the largest deviation of } S_N(X) \text{ above } F(X)
+```
+
+```math
+S_N(X) = \frac{\text{No. of } A_1, A_2, \dots, A_N \leq X}{N}
+```
+
+```math
+D^- = \max_{1 \leq i \leq N} \left\{ R(i) - \frac{i-1}{N} \right\}
+```
+
+```math
+D^- \text{ is the largest deviation of } S_N(X) \text{ below } F(X)
+```
+
+---
+***Step 3***:
+Compare $D = \text{max}(D^+, D^-)$
+
+where '$D$' is largest standard deviation between uniform distribution and emperical distribution ie., *observation*
+
+---
+
+***Step 4***:
+Locate the critical value $D_\alpha$ for the specified level of significance $\alpha$ and given sample size $N$.
+
+---
+***Step 5***:
+If the sample statistic $D$ is greater than the critical value $D_\alpha$, then the null hypothesis for the sample data is rejected.
+
+---
+##### ***Question***:
+Suppose 5 numbers are given: $0.44, 0.81, 0.14, 0.05, 0.93$. Test for uniformity using the K-S test with a level of significance $\alpha = 0.05$.
+
+### Solution:
+
+**Step 1:** Arrange the numbers in ascending order:
+
+$$
+\begin{array}{c|ccccc}  
+R_i & 0.05 & 0.14 & 0.44 & 0.81 & 0.93  
+\end{array}
+$$
+
+Given: $N = 5$, $\alpha = 0.05$
+
+**Step 2:** Calculate $\frac{j}{N}$ for each $j$, where $S_n(x) = \frac{j}{N}$
+
+$$
+S_n(x) = \frac{\text{No. of } R_1, R_2, \dots \text{ where } R_j \leq x}{N}
+$$
+
+- (i) $\frac{j}{N} = \frac{1}{5} = 0.20$
+- (ii) $\frac{j}{N} = \frac{2}{5} = 0.40$
+- (iii) $\frac{j}{N} = \frac{3}{5} = 0.60$
+- (iv) $\frac{j}{N} = \frac{4}{5} = 0.80$
+- (v) $\frac{j}{N} = \frac{5}{5} = 1.00$
+
+**Step 3:** Compute $D^+$ and $D^-$ for each $j$
+
+$$
+D^+ = \max_j \left( \frac{j}{N} - R_j \right), \quad D^- = \max_j \left( R_j - \frac{j-1}{N} \right)
+$$
+
+Calculations:
+
+- For $j = 1$:
+  - $D^+ = 0.20 - 0.05 = 0.15$
+  - $D^- = 0.05 - \frac{0}{5} = 0.05$
+
+- For $j = 2$:
+  - $D^+ = 0.40 - 0.14 = 0.26$
+  - $D^- = 0.14 - \frac{1}{5} = 0.14 - 0.20 = -0.06$
+
+- For $j = 3$:
+  - $D^+ = 0.60 - 0.44 = 0.16$
+  - $D^- = 0.44 - \frac{2}{5} = 0.44 - 0.40 = 0.04$
+
+- For $j = 4$:
+  - $D^+ = 0.80 - 0.81 = -0.01$
+  - $D^- = 0.81 - \frac{3}{5} = 0.81 - 0.60 = 0.21$
+
+- For $j = 5$:
+  - $D^+ = 1.00 - 0.93 = 0.07$
+  - $D^- = 0.93 - \frac{4}{5} = 0.93 - 0.80 = 0.13$
+
+**Table with $D^+$ and $D^-$:**
+
+| $R_i$   | $0.05$ | $0.14$ | $0.44$ | $0.81$ | $0.93$ |
+|---------|--------|--------|--------|--------|--------|
+| $\dfrac{j}{N}$  | $0.20$ | $0.40$ | $0.60$ | $0.80$ | $1.00$ |
+| $D^{+}$   | $0.15$ | $0.26$ | $0.16$ | $-0.01$ | $0.07$ |
+| $D^{-}$   | $0.05$ | $-0.06$  | $0.04$  | $0.21$ | $0.13$ |
+
+**Step 4:** Calculate the K-S statistic $D$
+
+$$
+D = \max(|D^+|, |D^-|) = \max(0.15, 0.26, 0.16, 0.07, 0.05, 0.04, 0.21, 0.13) = 0.26
+$$
+
+**Step 5:** Compare with the critical value $D_{\alpha}$
+
+For $N = 5$ and $\alpha = 0.05$, $D_{0.05, 5} = 0.563$
+
+Since $0.26 < 0.563$, we fail to reject the null hypothesis.
+
+**Conclusion:**
+
+The generated random numbers are uniformly distributed between 0 and 1 at the 0.05 level of significance.
+
+---
+
+> ***Assignment***: The sequence of random numbers $0.54, 0.73, 0.93, 0.11$, and $0.68$ has been generated. Use the Kolmogorov-Smirnov test with $\alpha = 0.05$. Test whether the hypothesis that the numbers are uniformly distributed on the interval $[0,1]$ can be rejected.
+>
+> ### Solution:
+>
+> **Step 1:** Arrange the numbers in ascending order:
+>
+> $$
+> \begin{array}{c|ccccc}  
+> R_i & 0.11 & 0.54 & 0.68 & 0.73 & 0.93  
+> \end{array}
+> $$
+>
+> Given: $N = 5$, $\alpha = 0.05$
+>
+> **Step 2:** Calculate $\frac{j}{N}$ for each $j$:
+>
+> - (i) $\frac{j}{N} = \frac{1}{5} = 0.20$
+> - (ii) $\frac{j}{N} = \frac{2}{5} = 0.40$
+> - (iii) $\frac{j}{N} = \frac{3}{5} = 0.60$
+> - (iv) $\frac{j}{N} = \frac{4}{5} = 0.80$
+> - (v) $\frac{j}{N} = \frac{5}{5} = 1.00$
+>
+> **Step 3:** Compute $D^+$ and $D^-$ for each $j$:
+>
+> - For $j = 1$:
+>   - $D^+ = 0.20 - 0.11 = 0.09$
+>   - $D^- = 0.11 - \frac{0}{5} = 0.11$
+>
+> - For $j = 2$:
+>   - $D^+ = 0.40 - 0.54 = -0.14$
+>   - $D^- = 0.54 - \frac{1}{5} = 0.54 - 0.20 = 0.34$
+>
+> - For $j = 3$:
+>   - $D^+ = 0.60 - 0.68 = -0.08$
+>   - $D^- = 0.68 - \frac{2}{5} = 0.68 - 0.40 = 0.28$
+>
+> - For $j = 4$:
+>   - $D^+ = 0.80 - 0.73 = 0.07$
+>   - $D^- = 0.73 - \frac{3}{5} = 0.73 - 0.60 = 0.13$
+>
+> - For $j = 5$:
+>   - $D^+ = 1.00 - 0.93 = 0.07$
+>   - $D^- = 0.93 - \frac{4}{5} = 0.93 - 0.80 = 0.13$
+>
+> **Table with $D^+$ and $D^-$:**
+>
+> | $R_i$   | $0.11$ | $0.54$ | $0.68$ | $0.73$ | $0.93$ |
+> |---------|--------|--------|--------|--------|--------|
+> | $\dfrac{j}{N}$  | $0.20$ | $0.40$ | $0.60$ | $0.80$ | $1.00$ |
+> | $D^{+}$   | $0.09$ | $-0.14$ | $-0.08$ | $0.07$ | $0.07$ |
+> | $D^{-}$   | $0.11$ | $0.34$  | $0.28$  | $0.13$ | $0.13$ |
+>
+> **Step 4:** Calculate the K-S statistic $D$:
+>
+> $$
+> D = \max(|D^+|, |D^-|) = \max(0.09, 0.14, 0.08, 0.07, 0.07, 0.11, 0.34, 0.28, 0.13, 0.13) = 0.34
+> $$
+>
+> **Step 5:** Compare with the critical value $D_{\alpha}$:
+>
+> For $N = 5$ and $\alpha = 0.05$, $D_{0.05, 5} = 0.563$
+>
+> Since $0.34 < 0.563$, we fail to reject the null hypothesis.
+>
+> **Conclusion:**
+>
+> The hypothesis that the numbers are uniformly distributed on $[0,1]$ cannot be rejected at the $0.05$ level of significance.
+
