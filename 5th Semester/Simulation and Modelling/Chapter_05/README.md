@@ -197,7 +197,7 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
     For $i = 5$
     $$X_6 = (aX_5 + c)\mod m \\ =(5\times 5 + 3) \mod 7 \\ = 0$$
 
-    $$\therefore R_6 = \frac{X_6}{m} = \frac{0}{7} = 0
+    $$\therefore R_6 = \frac{X_6}{m} = \frac{0}{7} = 0$$
 
 #### Text from Random Numbers
 
@@ -229,4 +229,101 @@ Two different testing are available:
 2. **Chi Square Test**
 
 Both of these test measure the degree of agreement between the distribution of samples of generated random numbers and the theoritical uniform distribution.
+
+
+Suppose 5 numbers are given 0.44, 0.81, 0.14, 0.05, 0.93 test for a uniformity using K-S test with level of significance $\alpha = 0.05$  
+
+Solution:  
+$\textbf{Step 1:}\quad \text{Arranging in aescending order:}$
+R1|R2|R3|R4|R5
+-|-|-|-|-
+0.05|0.14|0.44|0.81|0.93
+
+N = 5, $\alpha = 0.05$  
+
+$ \textbf{Step 2:}\quad \frac{i}{N}$ i.e $S_n(x) \text{ using formula}$
+$$
+S_n(x) = \frac{i}{N} = \frac{\text{No. of } R_1, R_2, \dots \text{ where } R_i \leq x}{N}
+$$
+
+
+$ (i) \quad \frac{j}{N} = \frac{1}{5} = 0.20 \quad \text{(Number of values } \leq 0.05) $  
+
+$ (ii) \quad \frac{j}{N} = \frac{2}{5} = 0.40 $  
+
+$ (iii) \quad \frac{j}{N} = \frac{3}{5} = 0.60 $  
+
+$ (iv) \quad \frac{j}{N} = \frac{4}{5} = 0.80 $  
+
+$ (v) \quad \frac{j}{N} = \frac{5}{5} = 1 $
+
+
+$  
+\begin{array}{c|ccccc}  
+R_i & 0.05 & 0.14 & 0.44 & 0.81 & 0.93 \\ \hline  
+\frac{j}{N} & 0.20 & 0.40 & 0.60 & 0.80 & 1.0 \\ \hline  
+D^+ & 0.15 & 0.26 & 0.16 & -0.01 & 0.07 \\ \hline  
+D^- &  &  &  &  &  
+\end{array}  
+$  
+
+$  
+(1) \quad D^+ = \left\{ \frac{j}{N} - R_i \right\} = \left\{ 0.20 - 0.05 \right\} = 0.15  
+$  
+
+$  
+(2) \quad D^+ = \left\{ \frac{j}{N} - R_i \right\} = \left\{ 0.40 - 0.14 \right\} = 0.26  
+$  
+
+$  
+(3) \quad D^+ = \left\{ \frac{j}{N} - R_i \right\} = \left\{ 0.60 - 0.44 \right\} = 0.16  
+$  
+
+$  
+(4) \quad D^+ = \left\{ \frac{j}{N} - R_i \right\} = \left\{ 0.80 - 0.81 \right\} = -0.01  
+$  
+
+$  
+(5) \quad D^+ = \left\{ \frac{j}{N} - R_i \right\} = \left\{ 1.00 - 0.93 \right\} = 0.07  
+$
+
+
+$  
+(1) \quad D^- = \left\{ R_i - \frac{j - 1}{N} \right\} = \left\{ 0.05 - \frac{(1 - 1)}{5} \right\} = 0.05  
+$  
+
+$  
+D^- = \left\{ R_i - \frac{j - 1}{N} \right\} = \left\{ 0.14 - \frac{(2 - 1)}{5} \right\} = -0.06  
+$  
+
+$  
+D^- = \left\{ R_i - \frac{j - 1}{N} \right\} = \left\{ 0.44 - \frac{(3 - 1)}{5} \right\} = 0.04  
+$  
+
+$  
+D^- = \left\{ R_i - \frac{j - 1}{N} \right\} = \left\{ 0.81 - \frac{(4 - 1)}{5} \right\} = 0.21  
+$  
+
+$  
+D^- = \left\{ R_i - \frac{j - 1}{N} \right\} = \left\{ 0.93 - \frac{(5 - 1)}{5} \right\} = 0.13  
+$  
+(add these values into the table above)
+
+$  
+\textbf{Step 3:} \quad D = \max(D^+, D^-) = \max(0.26, 0.21) = 0.26  
+$  
+
+$  
+\textbf{Step 4:} \quad D_{\alpha} = D_{0.05} = 0.565 \quad \text{(From Table)}  
+$  
+
+$  
+\textbf{Step 5:} \quad D < D_{\alpha} \quad \text{so the generated random numbers are uniformly distributed between 0 and 1}  
+$  
+
+$  
+0.26 < 0.565  
+$
+
+> Assignment: The sequence of random numbers 0.54, 0.73, 0.93, 0.11, and 0.68 has been generated. Use Kolmogorov-Smirnov test with $\alpha = 0.05$. Test whether the hypothesis that the numbers uniformly distributed on the interval [0,1] can be rejected.
 
