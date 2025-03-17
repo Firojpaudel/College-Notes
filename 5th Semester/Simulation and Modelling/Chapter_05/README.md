@@ -163,8 +163,11 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
     ***Example:***
 
     1. Generate Random numbers with following data:
-    $$X_0=0; a=5 ; c=3 \space \& \space m=7$$
 
+    $
+    X_0=0; a=5 ; c=3 \space \& \space m=7
+    $
+    
     ***Answer:***
 
     For $i = 0$
@@ -257,28 +260,28 @@ Let $R_i$ denote the $\text{i}^\text{th}$ smallest observation so that:
 $$R_{(1)} \leq R_{(2)} \leq R_{(3)} \leq ... \leq R_{(n)}$$
 
 ---
-***Step 2:***
-Compute:
+***Step 2:*** Compute:
 
-$$
-D^+ = \max_{1 \leq i \leq N} \left\{ \frac{i}{N} - R(i) \right\}
-$$
+```math
+D^+ = \max_{1 \leq i \leq N} \left\{ \dfrac{i}{N} - R(i) \right\}
+```
 
-$$
+```math
 D^+ \text{ is the largest deviation of } S_N(X) \text{ above } F(X)
-$$
+```
 
-$$
+```math
 S_N(X) = \frac{\text{No. of } A_1, A_2, \dots, A_N \leq X}{N}
-$$
+```
 
-$$
+```math
 D^- = \max_{1 \leq i \leq N} \left\{ R(i) - \frac{i-1}{N} \right\}
-$$
+```
 
-$$
+```math
 D^- \text{ is the largest deviation of } S_N(X) \text{ below } F(X)
-$$
+```
+
 ---
 ***Step 3***:
 Compare $D = \text{max}(D^+, D^-)$
@@ -352,14 +355,11 @@ Calculations:
 
 **Table with $D^+$ and $D^-$:**
 
-$$
-\begin{array}{c|ccccc}  
-R_i & 0.05 & 0.14 & 0.44 & 0.81 & 0.93 \\ \hline  
-\frac{j}{N} & 0.20 & 0.40 & 0.60 & 0.80 & 1.00 \\ \hline  
-D^+ & 0.15 & 0.26 & 0.16 & -0.01 & 0.07 \\ \hline  
-D^- & 0.05 & -0.06 & 0.04 & 0.21 & 0.13  
-\end{array}
-$$
+| $R_i$   | $0.05$ | $0.14$ | $0.44$ | $0.81$ | $0.93$ |
+|---------|--------|--------|--------|--------|--------|
+| $\dfrac{j}{N}$  | $0.20$ | $0.40$ | $0.60$ | $0.80$ | $1.00$ |
+| $D^{+}$   | $0.15$ | $0.26$ | $0.16$ | $-0.01$ | $0.07$ |
+| $D^{-}$   | $0.05$ | $-0.06$  | $0.04$  | $0.21$ | $0.13$ |
 
 **Step 4:** Calculate the K-S statistic $D$
 
@@ -379,7 +379,7 @@ The generated random numbers are uniformly distributed between 0 and 1 at the 0.
 
 ---
 
-> **Assignment**: The sequence of random numbers 0.54, 0.73, 0.93, 0.11, and 0.68 has been generated. Use the Kolmogorov-Smirnov test with $\alpha = 0.05$. Test whether the hypothesis that the numbers are uniformly distributed on the interval [0,1] can be rejected.
+> ***Assignment***: The sequence of random numbers $0.54, 0.73, 0.93, 0.11$, and $0.68$ has been generated. Use the Kolmogorov-Smirnov test with $\alpha = 0.05$. Test whether the hypothesis that the numbers are uniformly distributed on the interval $[0,1]$ can be rejected.
 >
 > ### Solution:
 >
@@ -425,14 +425,11 @@ The generated random numbers are uniformly distributed between 0 and 1 at the 0.
 >
 > **Table with $D^+$ and $D^-$:**
 >
-> $$
-> \begin{array}{c|ccccc}  
-> R_i & 0.11 & 0.54 & 0.68 & 0.73 & 0.93 \\ \hline  
-> \frac{j}{N} & 0.20 & 0.40 & 0.60 & 0.80 & 1.00 \\ \hline  
-> D^+ & 0.09 & -0.14 & -0.08 & 0.07 & 0.07 \\ \hline  
-> D^- & 0.11 & 0.34 & 0.28 & 0.13 & 0.13  
-> \end{array}
-> $$
+> | $R_i$   | $0.11$ | $0.54$ | $0.68$ | $0.73$ | $0.93$ |
+> |---------|--------|--------|--------|--------|--------|
+> | $\dfrac{j}{N}$  | $0.20$ | $0.40$ | $0.60$ | $0.80$ | $1.00$ |
+> | $D^{+}$   | $0.09$ | $-0.14$ | $-0.08$ | $0.07$ | $0.07$ |
+> | $D^{-}$   | $0.11$ | $0.34$  | $0.28$  | $0.13$ | $0.13$ |
 >
 > **Step 4:** Calculate the K-S statistic $D$:
 >
@@ -448,5 +445,5 @@ The generated random numbers are uniformly distributed between 0 and 1 at the 0.
 >
 > **Conclusion:**
 >
-> The hypothesis that the numbers are uniformly distributed on [0,1] cannot be rejected at the 0.05 level of significance.
+> The hypothesis that the numbers are uniformly distributed on $[0,1]$ cannot be rejected at the $0.05$ level of significance.
 
