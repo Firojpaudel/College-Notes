@@ -198,3 +198,35 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
     $$X_6 = (aX_5 + c)\mod m \\ =(5\times 5 + 3) \mod 7 \\ = 0$$
 
     $$\therefore R_6 = \frac{X_6}{m} = \frac{0}{7} = 0
+
+#### Text from Random Numbers
+
+The desired properties of random numbers are:
+1. Uniformity
+2. Independence can be checked or achieved by number of texts that can be peformed on generated random numbers.
+    The test can be placed into two categories according to the ideal properties of randomness.
+
+```mermaid
+flowchart TD
+    A[Random Number Tests]
+    A --> B[Uniformity test]
+    A --> C[Independence Test]
+    B --> D[Frequency test]
+    D --> E[Kolmogorov Smirov Test]
+    D --> F[Chi-square test]
+    C --> G[Autocorrelation test]
+```
+
+> **Kolmogorov and Chi-Square tests** are used to compare the distribution of set of number generated to uniform distribution.
+
+> **Autocorrelation Test** is used to test the correlation between numbers and compare the sample, correlation of the expected correlation zero.
+
+#### Frequency Test:
+It is a basic test that should always be performed to validate a new generation for uniform distribution of random number integer.
+Two different testing are available:
+
+1. **KS Test** ***(Kolmogorov Smirov Test)***:
+2. **Chi Square Test**
+
+Both of these test measure the degree of agreement between the distribution of samples of generated random numbers and the theoritical uniform distribution.
+
