@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],         // For inline math like $a$
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],      // For display math like $$a$$
+            skipTags: ["script", "noscript", "style", "textarea"]  // Don’t skip "pre" or "code"
+        },
+        messageStyle: "none"  // Hides loading messages
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Find all <div> inside <pre class="hljs"><code>
+        var mathDivs = document.querySelectorAll('pre.hljs code div');
+        mathDivs.forEach(function(div) {
+            // Wrap the content with $$...$$ for display math
+            div.innerHTML = '$$' + div.innerHTML + '$$';
+        });
+    });
+</script>
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="unit-5-random-numbers">Unit 5: Random Numbers</h2>
+<blockquote>
+<p><em>Qn. Define random numbers and describe why random numbers generated by computer are called pseudo random numbers</em></p>
+</blockquote>
+<p><strong>Random Numbers:</strong>
+They are samples drawn from a uniformly distributed random variable between some satisfied intervals, they have equal probabilities of occurence.</p>
+<ul>
+<li>A number chosen from some specified distribution randomly such  that selection of large set of those numbers reproduce the underlying distribution is called random number.</li>
+</ul>
+<hr>
+<h4 id="types-of-random-numbers">Types of Random Numbers</h4>
+<ol>
+<li>Truly Random Numbers</li>
+<li>Pseudo Random Numbers</li>
+</ol>
+<p>In computer random numbers are derived from a known starting point and is typically repeated ever and ever using some known algos to produce a sequence of numbers. The sequence of numbers are not completely random as the set of random numbers can be replicated because of use of some known methods. So, the random numbers generated by computers are called pseudo-random numbers.</p>
+<p>Every new numbers is generated from the previous ones by an algorithm. This means that the new value is fully determined by the previous ones.</p>
+<div align="center">
+    <img src="./images/img1.png" width="650px">
+</div>
+<p>A pseudo-random numer generated is an algo for generating a sequence of  numbers whose properties approximates the properties of sequence of random numbers. The sequence is not truly random, but is deterministic because it is completely determined by the initial value called seed.</p>
+<blockquote>
+<p>Qn. Differentiate between true and pseudo-random numbers. What are the basic properties of random numbers?</p>
+</blockquote>
+<h4 id="true-and-pseudo-random-numbers">True and Pseudo Random Numbers</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Pseudo Random Numbers</strong></th>
+<th><strong>True Random Numbers</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pseudo random numbers are the random numbers that are generated by using some known algos, so as to produce a sequence of numbers on $[0, 1]$ that can simulate the ideal properties of random numbers.</td>
+<td>True random numbers are gained from physical processes like radioactive decay or also rolling a dice and introduce it to a computer</td>
+</tr>
+<tr>
+<td>Number generation is fast</td>
+<td>Comparatively slow</td>
+</tr>
+<tr>
+<td>Sequence of numbers can be reproduced</td>
+<td>Can't be reproduced</td>
+</tr>
+<tr>
+<td>Sequence of numbers are repeated for sure</td>
+<td>Will or will not repeat</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="properties-of-random-numbers">Properties of Random Numbers</h4>
+<ol>
+<li>Uniformity</li>
+<li>Independence</li>
+<li>Max Density</li>
+<li>Max Cycle</li>
+</ol>
+<p><strong>Uniformity</strong>:</p>
+<p>The random numbers generated should be uniform that means a sequence of random numbers should be equally probable everywhere.</p>
+<p><strong>Independence</strong>:</p>
+<p>Each random number should be independent sample drawn from a continuous uniform distribution between $0$ and $1$.</p>
+<p>The probaility density function is given by:</p>
+<pre class="hljs"><code><div>f(x) =
+\begin{cases} 
+1 &amp; \text{if } 0 \le x \le 1 \\
+0 &amp; \text{otherwise}
+\end{cases}
+</div></code></pre>
+<p><strong>Max Density</strong>:</p>
+<p>The large samples of random numbers should be generated in a given image.</p>
+<p><strong>Max Cycle</strong>:</p>
+<p>It states that the repetition of numbers should be allowed only after a large interval of time.</p>
+<hr>
+<h4 id="uses-of-random-numbers">Uses of Random Numbers:</h4>
+<ol>
+<li>Science and Technology</li>
+<li>Art</li>
+<li>Gaming</li>
+<li>Gambling</li>
+<li>Cryptography</li>
+</ol>
+<hr>
+<h4 id="some-common-techniques-to-generate-pseudo-random-numbers">Some Common techniques to generate pseudo-random numbers:</h4>
+<ol>
+<li>Mid Square Method</li>
+<li>Linear Congruential: $x_n = a x_{n-1} + C (\text{mod} \space m)$</li>
+<li>Implicit Inversive Congruential: $x_n = \bar{ax_{n-1}} + C (\text{mod} \space p)$</li>
+<li>Shift Register:
+$$y_n = y_{n-s} + y_{n-r} (\text{mod} \space 2); r&gt; s$$</li>
+<li>Additive lagged-fibonacci:
+$$Z_n = Z_{n-s} + Z_{n-r}(\text{mod} \space 2^k ); r&gt;s$$</li>
+<li>Combined: $w_n = y_n + Z_n \mod (p)$</li>
+<li>Multiplicative lagged-fibonacci:
+$$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r&gt;s$$</li>
+</ol>
+<hr>
+<h4 id="pseudo-random-number-generation-prng">Pseudo-Random Number Generation (PRNG):</h4>
+<ol>
+<li>
+<p><strong>Mid Square Method:</strong></p>
+<p>It was given by <strong>John Von Newmann and Metropolis in 1940</strong>.</p>
+<p><em><strong>Algorithm:</strong></em></p>
+<ul>
+<li>Take any integer <em>(seed)</em> of say a two or four digit number.</li>
+<li>Sqaure it and pick the middle two digits <em>(or four)</em> and discard the rest.</li>
+<li>Now again square the selected middle two digits in the previous step.</li>
+<li>Repeat</li>
+</ul>
+<p><em><strong>Example 1:</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>S.N.</th>
+<th>Random Numbers</th>
+<th>Square</th>
+<th>Mid Digits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>11 <em>(seed)</em></td>
+<td>0 12 1</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12</td>
+<td>0 14 4</td>
+<td>14</td>
+</tr>
+<tr>
+<td>3</td>
+<td>14</td>
+<td>0 19 6</td>
+<td>19</td>
+</tr>
+<tr>
+<td>4</td>
+<td>19</td>
+<td>0 36 1</td>
+<td>36</td>
+</tr>
+<tr>
+<td>5</td>
+<td>36</td>
+<td>1 29 6</td>
+<td>29</td>
+</tr>
+<tr>
+<td>6</td>
+<td>29</td>
+<td>0 84 1</td>
+<td>84</td>
+</tr>
+<tr>
+<td>7</td>
+<td>84</td>
+<td>7 05 6</td>
+<td>05</td>
+</tr>
+<tr>
+<td>8</td>
+<td>05</td>
+<td>0 02 5</td>
+<td>02</td>
+</tr>
+<tr>
+<td>9</td>
+<td>02</td>
+<td>0 00 4</td>
+<td>00</td>
+</tr>
+<tr>
+<td>10</td>
+<td>00</td>
+<td>0 00 0</td>
+<td>00</td>
+</tr>
+</tbody>
+</table>
+<p>Mid Square Method <em>(Four Digits)</em></p>
+<ol>
+<li>Start with a $4$- digit number $Z_0$ <em>(seed).</em></li>
+<li>Square it to obtain $8$ - digit <em>(if necessary append zeros to the left)</em>.</li>
+<li>Take the middle $4$- digit to obtain the next $4$-digit number $Z_1$</li>
+<li>Then Square $Z_1$ and take the middle $4$- digit again and so on.</li>
+<li>We get unifor random number by placing the decimal points at the left of each $Z_i$.</li>
+</ol>
+<p><em><strong>Example 2:</strong></em> (Mid-Square Method- <em>PRNG</em>)</p>
+<table>
+<thead>
+<tr>
+<th>SN</th>
+<th>Random Numbers</th>
+<th>Square</th>
+<th>Mid Digits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7182 <em>(seed)</em></td>
+<td>51581124</td>
+<td>5811</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5811</td>
+<td>33767721</td>
+<td>7677</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7677</td>
+<td>58936329</td>
+<td>9363</td>
+</tr>
+<tr>
+<td>4</td>
+<td>9363</td>
+<td>87665769</td>
+<td>6657</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6657</td>
+<td>44315649</td>
+<td>3156</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3156</td>
+<td>09960336</td>
+<td>9603</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9603</td>
+<td>92217609</td>
+<td>2176</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2176</td>
+<td>04734976</td>
+<td>7349</td>
+</tr>
+<tr>
+<td>9</td>
+<td>7349</td>
+<td>54007801</td>
+<td>0078</td>
+</tr>
+<tr>
+<td>10</td>
+<td>0078</td>
+<td>00006084</td>
+<td>0060</td>
+</tr>
+<tr>
+<td>11</td>
+<td>0060</td>
+<td>00003600</td>
+<td>0036</td>
+</tr>
+<tr>
+<td>12</td>
+<td>0036</td>
+<td>00001296</td>
+<td>0012</td>
+</tr>
+<tr>
+<td>13</td>
+<td>0012</td>
+<td>00000144</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>14</td>
+<td>0001</td>
+<td>00000001</td>
+<td>0000</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Linear Congruential Method:</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>By D.H. Lebmer</p>
+</blockquote>
+<ul>
+<li>To produce a sequence of integers $X_1, X_2 ...$ between $0$ and $(m -1)$ by following a recursive relationship.</li>
+</ul>
+<blockquote>
+<p><em><strong>Recursive Relationship</strong></em>:
+$$X_{i+1} = (ax_i + c) \mod m ; \space i= 0, 1, 2 ...$$</p>
+</blockquote>
+<ul>
+<li>
+<p>Assumption: $m &gt; 0$ and $a &lt; m$, $c&lt; m$, $x_0 &lt; m$.</p>
+</li>
+<li>
+<p>The selection of the values for $a,c,m$ and $x_0$ drastically affects the stastical properties and the cycle length</p>
+</li>
+<li>
+<p>The random integers $x_i$ are being generated in $[ 0, m-1]$</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>PRNG Using Linear Congruential Method:</strong></p>
+<ol>
+<li>
+<p>We can generate random numbers from random integers $X_i$ of the LCM by:
+$$X_{i+1}= (ax_i +c)\mod m ; i = 0,1,2,3 ...$$</p>
+</li>
+<li>
+<p>Convert the integer $X_i$ to random numbers:
+$$R_i = \frac{X_i}{m}; i = 1,2, 3 ...$$</p>
+</li>
+</ol>
+<p><em><strong>Example:</strong></em></p>
+<ol>
+<li>Generate Random numbers with following data: $X_0=0; a=5 ; c=3 \space &amp; \space m=7$.</li>
+</ol>
+<p><em><strong>Answer:</strong></em></p>
+<p>For $i = 0$
+$$X_{i+1} = (ax_i + c)\mod m$$</p>
+<p>$$X_1 = (aX_0 + c)\mod m \ =(5\times 0 + 3) \mod 7 \ = 3$$</p>
+<p>$$\therefore R_1 = \frac{X_1}{m} = \frac{3}{7} = 0.43$$</p>
+<p>For $i = 1$
+$$X_2 = (aX_1 + c)\mod m \ =(5\times 3 + 3) \mod 7 \ = 4$$</p>
+<p>$$\therefore R_2 = \frac{X_2}{m} = \frac{4}{7} = 0.57$$</p>
+<p>For $i = 2$
+$$X_3 = (aX_2 + c)\mod m \ =(5\times 4 + 3) \mod 7 \ = 2$$</p>
+<p>$$\therefore R_3 = \frac{X_3}{m} = \frac{2}{7} = 0.29$$</p>
+<p>For $i = 3$
+$$X_4 = (aX_3 + c)\mod m \ =(5\times 2 + 3) \mod 7 \ = 6$$</p>
+<p>$$\therefore R_4 = \frac{X_4}{m} = \frac{6}{7} = 0.86$$</p>
+<p>For $i = 4$
+$$X_5 = (aX_4 + c)\mod m \ =(5\times 6 + 3) \mod 7 \ = 5$$</p>
+<p>$$\therefore R_5 = \frac{X_5}{m} = \frac{5}{7} = 0.714$$</p>
+<p>For $i = 5$
+$$X_6 = (aX_5 + c)\mod m \ =(5\times 5 + 3) \mod 7 \ = 0$$</p>
+<p>$$\therefore R_6 = \frac{X_6}{m} = \frac{0}{7} = 0$$</p>
+</li>
+</ol>
+<h4 id="text-from-random-numbers">Text from Random Numbers</h4>
+<p>The desired properties of random numbers are:</p>
+<ol>
+<li>Uniformity</li>
+<li>Independence can be checked or achieved by number of texts that can be peformed on generated random numbers.
+The test can be placed into two categories according to the ideal properties of randomness.</li>
+</ol>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    A[Random Number Tests]
+    A --> B[Uniformity test]
+    A --> C[Independence Test]
+    B --> D[Frequency test]
+    D --> E[Kolmogorov Smirov Test]
+    D --> F[Chi-square test]
+    C --> G[Autocorrelation test]
+</div></code></pre>
+<blockquote>
+<p><strong>Kolmogorov and Chi-Square tests</strong> are used to compare the distribution of set of number generated to uniform distribution.</p>
+</blockquote>
+<blockquote>
+<p><strong>Autocorrelation Test</strong> is used to test the correlation between numbers and compare the sample, correlation of the expected correlation zero.</p>
+</blockquote>
+<h4 id="frequency-test">Frequency Test:</h4>
+<p>It is a basic test that should always be performed to validate a new generation for uniform distribution of random number integer.
+Two different testing are available:</p>
+<ol>
+<li><strong>KS Test</strong> <em><strong>(Kolmogorov Smirov Test)</strong></em>:</li>
+<li><strong>Chi Square Test</strong></li>
+</ol>
+<p>Both of these test measure the degree of agreement between the distribution of samples of generated random numbers and the theoritical uniform distribution.</p>
+<hr>
+<h4 id="test-used-for-ks-test">Test Used For KS Test</h4>
+<p>In testing for uniformity, the hypothesis are as follows:</p>
+<p>$H_0: R_i \sim  U[0,1] \longrightarrow \text{Every random numbers is unformly distributive}$</p>
+<p>$H_1: R_i \nsim U[0,1] \longrightarrow \text{Not uniformly distributed}$</p>
+<p>The null hypothesis $H_0$, reads that the numbers are distributed uniformly on the interval $[0,1]$. Failure to reject null hypothesis means that the evidence of non uniformly has been detected by the test.</p>
+<h5 id="level-of-significance">Level of significance:</h5>
+<p>For each test, a level of significance, i.e., $'\alpha\space'$ must be stated. The $'\alpha\space'$ is probability of rejecting the null hypothesis when the null hypothesis is true.</p>
+<p>$$\alpha = \text{P}[\text{reject} \space H_0 | H_0 \space \text{true}]$$</p>
+<p>The decision maker sets the value of $\alpha$ for any frequency $'\alpha\space'$ is set to $0.01$ or $0.05$.</p>
+<p>The following steps shows <strong>KS-Test</strong> procedure for testing against a uniform-cdf $\longrightarrow$ cummulative distribution function.</p>
+<hr>
+<p><em><strong>Step 1:</strong></em>
+Rank the data from smallest to largest</p>
+<p>Let $R_i$ denote the $\text{i}^\text{th}$ smallest observation so that:
+$$R_{(1)} \leq R_{(2)} \leq R_{(3)} \leq ... \leq R_{(n)}$$</p>
+<hr>
+<p><em><strong>Step 2:</strong></em> Compute:</p>
+<pre class="hljs"><code><div>D^+ = \max_{1 \leq i \leq N} \left\{ \dfrac{i}{N} - R(i) \right\}
+</div></code></pre>
+<pre class="hljs"><code><div>D^+ \text{ is the largest deviation of } S_N(X) \text{ above } F(X)
+</div></code></pre>
+<pre class="hljs"><code><div>S_N(X) = \frac{\text{No. of } A_1, A_2, \dots, A_N \leq X}{N}
+</div></code></pre>
+<pre class="hljs"><code><div>D^- = \max_{1 \leq i \leq N} \left\{ R(i) - \frac{i-1}{N} \right\}
+</div></code></pre>
+<pre class="hljs"><code><div>D^- \text{ is the largest deviation of } S_N(X) \text{ below } F(X)
+</div></code></pre>
+<hr>
+<p><em><strong>Step 3</strong></em>:
+Compare $D = \text{max}(D^+, D^-)$</p>
+<p>where '$D$' is largest standard deviation between uniform distribution and emperical distribution ie., <em>observation</em></p>
+<hr>
+<p><em><strong>Step 4</strong></em>:
+Locate the critical value $D_\alpha$ for the specified level of significance $\alpha$ and given sample size $N$.</p>
+<hr>
+<p><em><strong>Step 5</strong></em>:
+If the sample statistic $D$ is greater than the critical value $D_\alpha$, then the null hypothesis for the sample data is rejected.</p>
+<hr>
+<h5 id="question"><em><strong>Question</strong></em>:</h5>
+<p>Suppose 5 numbers are given: $0.44, 0.81, 0.14, 0.05, 0.93$. Test for uniformity using the K-S test with a level of significance $\alpha = 0.05$.</p>
+<h3 id="solution">Solution:</h3>
+<p><strong>Step 1:</strong> Arrange the numbers in ascending order:</p>
+<p>$$
+\begin{array}{c|ccccc}<br>
+R_i &amp; 0.05 &amp; 0.14 &amp; 0.44 &amp; 0.81 &amp; 0.93<br>
+\end{array}
+$$</p>
+<p>Given: $N = 5$, $\alpha = 0.05$</p>
+<p><strong>Step 2:</strong> Calculate $\frac{j}{N}$ for each $j$, where $S_n(x) = \frac{j}{N}$</p>
+<p>$$
+S_n(x) = \frac{\text{No. of } R_1, R_2, \dots \text{ where } R_j \leq x}{N}
+$$</p>
+<ul>
+<li>(i) $\frac{j}{N} = \frac{1}{5} = 0.20$</li>
+<li>(ii) $\frac{j}{N} = \frac{2}{5} = 0.40$</li>
+<li>(iii) $\frac{j}{N} = \frac{3}{5} = 0.60$</li>
+<li>(iv) $\frac{j}{N} = \frac{4}{5} = 0.80$</li>
+<li>(v) $\frac{j}{N} = \frac{5}{5} = 1.00$</li>
+</ul>
+<p><strong>Step 3:</strong> Compute $D^+$ and $D^-$ for each $j$</p>
+<p>$$
+D^+ = \max_j \left( \frac{j}{N} - R_j \right), \quad D^- = \max_j \left( R_j - \frac{j-1}{N} \right)
+$$</p>
+<p>Calculations:</p>
+<ul>
+<li>
+<p>For $j = 1$:</p>
+<ul>
+<li>$D^+ = 0.20 - 0.05 = 0.15$</li>
+<li>$D^- = 0.05 - \frac{0}{5} = 0.05$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 2$:</p>
+<ul>
+<li>$D^+ = 0.40 - 0.14 = 0.26$</li>
+<li>$D^- = 0.14 - \frac{1}{5} = 0.14 - 0.20 = -0.06$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 3$:</p>
+<ul>
+<li>$D^+ = 0.60 - 0.44 = 0.16$</li>
+<li>$D^- = 0.44 - \frac{2}{5} = 0.44 - 0.40 = 0.04$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 4$:</p>
+<ul>
+<li>$D^+ = 0.80 - 0.81 = -0.01$</li>
+<li>$D^- = 0.81 - \frac{3}{5} = 0.81 - 0.60 = 0.21$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 5$:</p>
+<ul>
+<li>$D^+ = 1.00 - 0.93 = 0.07$</li>
+<li>$D^- = 0.93 - \frac{4}{5} = 0.93 - 0.80 = 0.13$</li>
+</ul>
+</li>
+</ul>
+<p><strong>Table with $D^+$ and $D^-$:</strong></p>
+<table>
+<thead>
+<tr>
+<th>$R_i$</th>
+<th>$0.05$</th>
+<th>$0.14$</th>
+<th>$0.44$</th>
+<th>$0.81$</th>
+<th>$0.93$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\dfrac{j}{N}$</td>
+<td>$0.20$</td>
+<td>$0.40$</td>
+<td>$0.60$</td>
+<td>$0.80$</td>
+<td>$1.00$</td>
+</tr>
+<tr>
+<td>$D^{+}$</td>
+<td>$0.15$</td>
+<td>$0.26$</td>
+<td>$0.16$</td>
+<td>$-0.01$</td>
+<td>$0.07$</td>
+</tr>
+<tr>
+<td>$D^{-}$</td>
+<td>$0.05$</td>
+<td>$-0.06$</td>
+<td>$0.04$</td>
+<td>$0.21$</td>
+<td>$0.13$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 4:</strong> Calculate the K-S statistic $D$</p>
+<p>$$
+D = \max(|D^+|, |D^-|) = \max(0.15, 0.26, 0.16, 0.07, 0.05, 0.04, 0.21, 0.13) = 0.26
+$$</p>
+<p><strong>Step 5:</strong> Compare with the critical value $D_{\alpha}$</p>
+<p>For $N = 5$ and $\alpha = 0.05$, $D_{0.05, 5} = 0.563$</p>
+<p>Since $0.26 &lt; 0.563$, we fail to reject the null hypothesis.</p>
+<p><strong>Conclusion:</strong></p>
+<p>The generated random numbers are uniformly distributed between 0 and 1 at the 0.05 level of significance.</p>
+<hr>
+<blockquote>
+<p><em><strong>Assignment</strong></em>: The sequence of random numbers $0.54, 0.73, 0.93, 0.11$, and $0.68$ has been generated. Use the Kolmogorov-Smirnov test with $\alpha = 0.05$. Test whether the hypothesis that the numbers are uniformly distributed on the interval $[0,1]$ can be rejected.</p>
+<h3 id="solution">Solution:</h3>
+<p><strong>Step 1:</strong> Arrange the numbers in ascending order:</p>
+<p>$$
+\begin{array}{c|ccccc}<br>
+R_i &amp; 0.11 &amp; 0.54 &amp; 0.68 &amp; 0.73 &amp; 0.93<br>
+\end{array}
+$$</p>
+<p>Given: $N = 5$, $\alpha = 0.05$</p>
+<p><strong>Step 2:</strong> Calculate $\frac{j}{N}$ for each $j$:</p>
+<ul>
+<li>(i) $\frac{j}{N} = \frac{1}{5} = 0.20$</li>
+<li>(ii) $\frac{j}{N} = \frac{2}{5} = 0.40$</li>
+<li>(iii) $\frac{j}{N} = \frac{3}{5} = 0.60$</li>
+<li>(iv) $\frac{j}{N} = \frac{4}{5} = 0.80$</li>
+<li>(v) $\frac{j}{N} = \frac{5}{5} = 1.00$</li>
+</ul>
+<p><strong>Step 3:</strong> Compute $D^+$ and $D^-$ for each $j$:</p>
+<ul>
+<li>
+<p>For $j = 1$:</p>
+<ul>
+<li>$D^+ = 0.20 - 0.11 = 0.09$</li>
+<li>$D^- = 0.11 - \frac{0}{5} = 0.11$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 2$:</p>
+<ul>
+<li>$D^+ = 0.40 - 0.54 = -0.14$</li>
+<li>$D^- = 0.54 - \frac{1}{5} = 0.54 - 0.20 = 0.34$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 3$:</p>
+<ul>
+<li>$D^+ = 0.60 - 0.68 = -0.08$</li>
+<li>$D^- = 0.68 - \frac{2}{5} = 0.68 - 0.40 = 0.28$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 4$:</p>
+<ul>
+<li>$D^+ = 0.80 - 0.73 = 0.07$</li>
+<li>$D^- = 0.73 - \frac{3}{5} = 0.73 - 0.60 = 0.13$</li>
+</ul>
+</li>
+<li>
+<p>For $j = 5$:</p>
+<ul>
+<li>$D^+ = 1.00 - 0.93 = 0.07$</li>
+<li>$D^- = 0.93 - \frac{4}{5} = 0.93 - 0.80 = 0.13$</li>
+</ul>
+</li>
+</ul>
+<p><strong>Table with $D^+$ and $D^-$:</strong></p>
+<table>
+<thead>
+<tr>
+<th>$R_i$</th>
+<th>$0.11$</th>
+<th>$0.54$</th>
+<th>$0.68$</th>
+<th>$0.73$</th>
+<th>$0.93$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\dfrac{j}{N}$</td>
+<td>$0.20$</td>
+<td>$0.40$</td>
+<td>$0.60$</td>
+<td>$0.80$</td>
+<td>$1.00$</td>
+</tr>
+<tr>
+<td>$D^{+}$</td>
+<td>$0.09$</td>
+<td>$-0.14$</td>
+<td>$-0.08$</td>
+<td>$0.07$</td>
+<td>$0.07$</td>
+</tr>
+<tr>
+<td>$D^{-}$</td>
+<td>$0.11$</td>
+<td>$0.34$</td>
+<td>$0.28$</td>
+<td>$0.13$</td>
+<td>$0.13$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 4:</strong> Calculate the K-S statistic $D$:</p>
+<p>$$
+D = \max(|D^+|, |D^-|) = \max(0.09, 0.14, 0.08, 0.07, 0.07, 0.11, 0.34, 0.28, 0.13, 0.13) = 0.34
+$$</p>
+<p><strong>Step 5:</strong> Compare with the critical value $D_{\alpha}$:</p>
+<p>For $N = 5$ and $\alpha = 0.05$, $D_{0.05, 5} = 0.563$</p>
+<p>Since $0.34 &lt; 0.563$, we fail to reject the null hypothesis.</p>
+<p><strong>Conclusion:</strong></p>
+<p>The hypothesis that the numbers are uniformly distributed on $[0,1]$ cannot be rejected at the $0.05$ level of significance.</p>
+</blockquote>
+
+</body>
+</html>

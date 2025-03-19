@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],         // For inline math like $a$
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],      // For display math like $$a$$
+            skipTags: ["script", "noscript", "style", "textarea"]  // Don’t skip "pre" or "code"
+        },
+        messageStyle: "none"  // Hides loading messages
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Find all <div> inside <pre class="hljs"><code>
+        var mathDivs = document.querySelectorAll('pre.hljs code div');
+        mathDivs.forEach(function(div) {
+            // Wrap the content with $$...$$ for display math
+            div.innerHTML = '$$' + div.innerHTML + '$$';
+        });
+    });
+</script>
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="unit-3-queuing-system">Unit 3: Queuing System</h1>
+<h3 id="queue">Queue</h3>
+<blockquote>
+<p><em>Q. What do you mean by Queuing system. Explain the charcteristis of queing system with example.</em></p>
+</blockquote>
+<ul>
+<li>The line where the entities or customer wait is generally known as queue.</li>
+<li>The combination of all entities in system being served and being waiting for service will be called as queuing system.</li>
+</ul>
+<p><img src="images/fig1.gif" alt="fig1"></p>
+<ul>
+<li>The key elements of queuing systems are customer and server.</li>
+<li>Customer refers to anything that arrives at a faculty and requires service. Example: People, machine, Trucks, Emails</li>
+<li>Server refers to any resources that provides the requested service. Example: Receptionist, Teller, CPU, Washing Machine etc.</li>
+</ul>
+<h2 id="characteristics-of-queuing-system">Characteristics of Queuing system</h2>
+<ol>
+<li>Calling Population</li>
+<li>Arrival Process</li>
+<li>Service Process</li>
+<li>Queuing Discipline and Queuing behaviour</li>
+<li>Number of Servers</li>
+</ol>
+<h3 id="1-calling-population">1. Calling Population</h3>
+<ul>
+<li>The population of potential customer those require service from system is called calling population.</li>
+<li>It may be finite or infinite.
+<ul>
+<li>System having large calling population is usually considered as infinite. Example: Customer at Banks.</li>
+<li>Any system having less and countable population is considered as finite. Example: A certain number of machines to be repaired by service man.</li>
+</ul>
+</li>
+<li>In finite population, arrival rate depends on the number of customers being served and waiting. But in infinite population model, arrival rate is not affected by the number of customers being served and waiting.</li>
+</ul>
+<h3 id="2-arrival-process">2. Arrival Process</h3>
+<ul>
+<li>The arrival process of infinite population model is usually characterized in terms of arrival times of successive customers.</li>
+<li>Arrivals may occur at scheduled times or at random times.</li>
+<li>When at random times, the inter-arrival times are usually characterized by 4 probability distribution and most important model for random arrival is the poisson process.</li>
+<li>In scheduled arrival, the inter-arrival time of customer is constant.</li>
+</ul>
+<h3 id="3-service-process">3. Service Process</h3>
+<ul>
+<li>Service process can be measured by number of customers served by some unit of time or the time taken to complete the service.</li>
+<li>Once entities have entered to the system, they must be served.</li>
+<li>The services can be provied in single or batch.</li>
+<li>If it is both, as in the case of arrival the batch size can be fixed or random. Service time may be of constant or random duration.</li>
+</ul>
+<h4 id="markov-service-process">Markov Service Process</h4>
+<p>A Markov service process is a speial service process in which entities are processed one at a time in FCFS order and service times are independent and exponential.<br>
+As with the case of Markov arrivals, a Markov service process is memory less which means that the expected time until an entity is finished remains constant regardless of how long it has been in service.</p>
+<h3 id="4-queuing-discipline-and-queuing-behaviour">4. Queuing Discipline and Queuing behaviour</h3>
+<h4 id="quening-discipline">Quening Discipline</h4>
+<ul>
+<li>Queue discipline refers to the rule that a sercer uses to choose the next customer from the queue when the server completes the services of the current customer.</li>
+<li>Common queue disciplines include:<br>
+FIFO (First-in-First-out)<br>
+LIFO (Last-in-First-out)<br>
+SIRO (Services in random order)<br>
+SPTF (Shortest Processing Time First)<br>
+PR (Services according to priority)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Discipline</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIFO</td>
+<td>This principle states that customers are served one at a time and the customer that has been waiting the longest is served first.</td>
+</tr>
+<tr>
+<td>LIFO</td>
+<td>This principle also serves one customer at a time. However, the customer with the shortest waiting time will be served first.</td>
+</tr>
+<tr>
+<td>SIRO</td>
+<td>A customer is picked up randomly from the waiting queue for service.</td>
+</tr>
+<tr>
+<td>SPTF</td>
+<td>THe next job to be served is the one with the smallest size (shrotest service time).</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>Customers with high priority are served first.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="queuing-behaviour">Queuing Behaviour</h4>
+<ul>
+<li>
+<p>Queuing behaviour refers to the actions of customer while in a queue waiting for services to begin.</p>
+</li>
+<li>
+<p>Different queue behaviors are:</p>
+<ul>
+<li>Balk/Balking: It means leaving the queue when the customers see the line is too long.</li>
+<li>Renege/Reneging: Leave after being in the line  when they see that the line is moving two slowly.</li>
+<li>Jockey/ Jockeying: Move from one to another line.</li>
+</ul>
+</li>
+</ul>
+<h4 id="queuing-notations-kendall-notation-of-queuing-system">Queuing Notations (Kendall Notation of Queuing System)</h4>
+<p>In queuing theory, a discipline within the mathematical theory of probability, Kendall's notation is the standard system used to describe and clasify a queuing node.</p>
+<p>D.G. Kendell [1953] represented Stochastic Process occuring on the theory of queue and their analysis by the method of imbeded Markov chain and gave a shorthand notation for queuing systems which has been widely adapted.</p>
+<p>An abbreviated version of this convention is based on the format A/B/C/N/K/D where:</p>
+<ul>
+<li>A represents the interarrival time distribution.</li>
+<li>B represents the service-time distribution.</li>
+<li>C represents the number of parallel services.</li>
+<li>N represents the system capacity.</li>
+<li>K represents the size of calling population.</li>
+<li>D represents queuing discipline.</li>
+</ul>
+<p>When N and K are infinite, they may be dropped from the notation.<br>
+When the final three parameters are not specified (eg. M/M/1), it is assumed N = $\infty$, K = $\infty$ and D = FIFO</p>
+<p><strong>Common symbols for A and B include:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Characteristics</th>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A - Interarrival Distribution</td>
+<td>$D$ <br> $C_k$ <br>$E_k$<br>$G$<br>$G_d$<br>$G_{f0}$<br>$H_k$<br>$M$<br>$ME$<br>$MAP$<br>$PH$</td>
+<td>Deterministic<br>K Phase<br>Enlarge<br>General<br>General/Independent<br>Goemetric(dicrete)<br>Hyper exponential<br>Exponential(Markov)<br>Matrix exponential<br>Markov Arrival Process<br>Phase Type</td>
+</tr>
+<tr>
+<td>B - Series Time Distribution</td>
+<td>$D$<br>$C_k$<br>$E_k$<br>$G$<br>$HI$<br>$KGFO$<br>$MK$<br>$M$<br>$MB$<br>$MAP$<br>$PG$<br>$SM$</td>
+<td>Deterministic<br>K-Phases<br>Enlarge(K-Phase)<br>General<br>General Independent<br>Geometric (discrete)<br>Hyper Exponential<br>Exponential<br>Matrix exponential<br>Markov Arrival Process<br>Phase type<br>Semi Markov</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example 1:</strong>
+<strong>M/M/1/$\alpha$/$\alpha$</strong></p>
+<ul>
+<li>Indicates a single server system that has unlimited capacity and an infinite population of potential arrivals.</li>
+<li>The interarrival time and service time are exponentially distributed.</li>
+</ul>
+<p>M|M|1</p>
+<p><strong>Example 2:</strong>
+<strong>D/M/1/10/50/LIFO</strong></p>
+<ul>
+<li>Interarrival times are deterministic and service time is exponentially distributed.</li>
+<li>A single server system that queue length capacity is 10 with finite population of 50 potential arrivals.</li>
+<li>Queue discipline is LIFO.</li>
+</ul>
+<h3 id="5-number-of-servers">5. Number of Servers</h3>
+<p>Servers represent the entity that provides services to the customers. A system may consist of single servers or multiple servers.</p>
+<p><strong>Queing Notation (Kendall's Notation)</strong></p>
+<style>
+        .text {
+            font-family: monospace;
+            white-space: pre-wrap;  /* Ensures the text wraps properly */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+<div class="text">
+Queuing Model
+│
+├── Single Server
+│
+├── Multiple Servers
+│
+└── Multiple Single Server Queues
+</div>
+A queuing system is described by its calling population, the number of arrivals, the service mechanisms, system capacity and queuing discipline.  
+<h4 id="1-single-server-queue">1. Single Server Queue</h4>
+<p>A single channel queuing system is portrayed by the figure below:</p>
+<p><img src="images/fig2.png" alt="fig2"></p>
+<p>So in a single server queue,</p>
+<ul>
+<li>Calling population is infinite
+<ul>
+<li>Arrival rate does not change</li>
+</ul>
+</li>
+<li>Units are served according to FIFO</li>
+<li>Arrivals are defined by the distribution of time between arrivals
+<ul>
+<li>Inter-arrival time</li>
+</ul>
+</li>
+<li>Service time are according to distribution</li>
+<li>Arrival rate must be less than service rate
+<ul>
+<li>Stable system</li>
+</ul>
+</li>
+<li>Otherwise waiting time will grow ubounded
+<ul>
+<li>Unstable system</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-multiple-server-queue">2. Multiple Server Queue</h4>
+<p><img src="images/fig3.png" alt="fig3"></p>
+<p>The multi-server queue consist of multiple servers and a common queue for all items. When any item requests for the server, it is allocated if at least one server is available ELSE the queue begins to start until the server is free.</p>
+<p>In this system, we assume that all servers are identical i.e there is no difference which server is chosen for which item.<br>
+The total server utilization for an N-server system is given by:</p>
+<p>$$
+\rho = \frac{\lambda}{\mu N}
+$$
+Where,<br>
+$$
+\lambda = \text{arrival rate}
+$$
+$$
+\mu = \text{service rate}
+$$</p>
+<p>Fig shows a generalization of the simple model we have been discussing for multiple servers all sharing a common queue.<br>
+If an item arrives and at least one server is available, then the item is immediately dispatched to those servers.</p>
+<p>It is assumed that all servers are identical, thus if more than one server is available, it makes no difference which server is chosen for the item.</p>
+<p>If all servers are busy, a queue begins to form. As soon as one server becomes free, an item is dispatched from the queue using the dispatching displines in force.</p>
+<h2 id="3-multiple-single-server-queue">3. Multiple Single Server Queue</h2>
+<p><img src="images/fig4.png" alt="fig4"></p>
+<h2 id="measureexample-of-queing-system-performance">Measure/Example of Queing System Performance</h2>
+<p>The performance of a queing system can be evaluated in terms of a number of repsonsive parameters, however the following four are generally employed:</p>
+<ol>
+<li>
+<p>Average number of customer in the queue or in the system</p>
+</li>
+<li>
+<p>Average waiting time of the customer in the queue or in the system</p>
+</li>
+<li>
+<p>System utilization (Server utilization)</p>
+</li>
+<li>
+<p>The cost of waiting time and idle time</p>
+</li>
+</ol>
+<h3 id="1-average-number-of-customer-in-the-queue">1. Average number of customer in the queue</h3>
+<p>If $T_a$ and $T_s$ be the inter arrival time and the mean service time then<br>
+$\text{Arrival rate} \ \lambda = \frac{1}{T_a}$<br>
+$\text{Service rate} \ \mu = \frac{1}{T_s}$<br>
+$\text{Average number of customer in the system} = \frac{\lambda}{(\mu - \lambda)}$<br>
+$\text{Average number of customer in the queue} = \frac{\lambda^2}{\mu(\mu-\lambda)}$<br>
+$\text{Average waiting time in the system} = \frac{1}{\mu-\lambda}$<br>
+$\text{Average waiting time in the queue} = \frac{\lambda}{\mu(\mu-\lambda)}$</p>
+<h3 id="2-the-ratio-of-the-mean-service-time-to-the-mean-inter-arrival-time-is-called-traffic-density-ie-mu--fractsta">2. The ratio of the mean service time to the mean inter arrival time is called traffic density i.e $\mu = \frac{T_s}{T_a}$</h3>
+<h3 id="3-server-utilization">3. Server Utilization</h3>
+<p>It consists of only the arrival that gets served. It is denoted by and defined as $\rho = \lambda T_s = \frac{\lambda}{\mu}$ (server utilization for single server)</p>
+<p>or, $\rho = \lambda T_s = \frac{\lambda}{n\mu}$ (server utilization for n servers)</p>
+<h2 id="server-utilization">Server Utilization</h2>
+<p>Server/system utilization is the percentage of the time that all servers are busy. System utilization factor ($\rho$) is the ratio of average arrival rate ($\lambda$) to the average service rate ($\mu$)</p>
+<p>$\rho = \frac{\lambda}{N}$ is the case of a single service model</p>
+<p>$\rho = \frac{\lambda}{\mu n \sigma}$ is the case of a 'n' server model</p>
+<p>The system utilization can be increased by increasing the arrival rate which amounts to increasing the average queue length as well as the average waiting time as shown in figure.</p>
+<p>Under the normal circumstances 100% system utilization is not a realistic goal.</p>
+<p><img src="images/fig5.png" alt="fig5"></p>
+<h2 id="congestion">Congestion</h2>
+<p>A congestion system is a system in which there is a demand for resources for a system and when the resources become unavailable, those requesting the resources wait for them to become available. The level of congestion in such systems is usually measured by the waiting line or queue of resources requesting (waiting line or queing models)</p>
+<h2 id="csmd-continuous-sytem-modelling-program">CSMD (Continuous Sytem Modelling Program)</h2>
+<p>CSMP is an early scientific computer software designed for modelling and solving differential equations numerically, which enables real world system to be simulated and tested with a computer,</p>
+<p>Types of statements in CSMP:</p>
+<ol>
+<li>Structural statements</li>
+<li>Data statements</li>
+<li>Control statements</li>
+</ol>
+<h3 id="1-structural-statements">1. Structural statements</h3>
+<p>They define the model.</p>
+<p>They consist o FORTRAN like statement and functional block designed for operations that frequently occur in model definition. Structural statements can make use of the operation of addition, subtraction, multiplication, division and exponentiation using the same notation and rules as are used in FORTRAN.</p>
+<p>If the model include the equation<br>
+$x = \frac{6y}{w} + (z-2)^2$
+Then the following statement would be used<br>
+$x = 6o*\frac{y}{w} + (z-2)**2o$</p>
+<h3 id="2-data-statements">2. Data statements</h3>
+<p>They assign numerical value to parameters, constants and intial conditions.<br>
+For example, one date statement called INCON can be used to set the initial value of integration function block.</p>
+<h3 id="3-control-statements">3. Control statements</h3>
+<p>They specify options in the assembly and execution of program and choice of inputs.<br>
+For example, if printed output is required, control statements with PRINT and PROEL are used followed by the name of variables to form the output.</p>
+<h2 id="applications-of-queing-system">Applications of Queing System</h2>
+<h3 id="1-simulation-of-traffic-control-system">1. Simulation of traffic control system</h3>
+<p>experiment on big model<br>
+For example, flight</p>
+<p><img src="images/fig6.png" alt="fig6"></p>
+<h3 id="2-cpu-scheduling-in-multiprogramming-and-time-sharing-environment">2. CPU Scheduling in Multiprogramming and time sharing environment</h3>
+<p>CPU scheduling is the basis of multiprogramming operating system, By switching the CPU among processes, the OS can make the computer more productive.</p>
+<ul>
+<li>In a single processor system , only one processor can run at a time</li>
+<li>Any other must wait until the CPU is free and can be rescheduled</li>
+<li>The objective of multiprogramming is to have the same process running at all times to maximize CPU utilization</li>
+<li>A process is exected until it must wait typically for the completion of some I/O request.</li>
+</ul>
+<h3 id="3-multilevel-queue-scheduling">3. Multilevel Queue Scheduling</h3>
+<p><img src="images/fig7.png" alt="fig7"></p>
+<p>The process from the hightest priority queue are served until the queue becomes empty.</p>
+<h3 id="4-multilevel-feedback-queue-scheduling">4. Multilevel Feedback Queue Scheduling</h3>
+<p><img src="images/fig8.jpg" alt="fig8"></p>
+<p>The number of process having the highest priority queue is very high than the lower priority. May store the processes for a long time.</p>
+<ul>
+<li>Processes are permanently assigned to a queue upon empty to the system.</li>
+</ul>
+<p>To overcome:</p>
+<ul>
+<li>Giving time slice between the queue</li>
+<li>Process waits too long in a lower priority queue may be moved to a higher priority queue.</li>
+</ul>
+<h3 id="5-round-robin-scheduling">5. Round Robin Scheduling</h3>
+<ul>
+<li>The round robin scheduling agorithm is designed especially for time sharing system,</li>
+<li>A small unit of time called a time quantum or time slice is defined</li>
+</ul>
+<p><img src="images/fig9.jpg" alt="fig9"></p>
+<ul>
+<li>The ready queue is treated as a circular queue</li>
+<li>CPU scheduler goes around the ready queue allocating the CPU to each process for a time interval of upto 1 time quantum</li>
+</ul>
+
+</body>
+</html>

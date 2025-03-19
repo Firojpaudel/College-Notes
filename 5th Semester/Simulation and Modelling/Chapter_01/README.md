@@ -265,12 +265,12 @@ graph LR
 **_Example 1:_ RadioActive Decay**
 
 Experiment shows that at each instant a radio-active substance decomposes, the rate of decomposition is propotional to the amount of substance present. Given a certain initial amount of a radioactive substance present at any time later.
-```math
+$$
 \text{Let, y = amount of substance present at any given time} \\
 \text{y}_0 = \text{initial amount of substance} \\ \space \frac{\text{dy}}{\text{dt}} \space \alpha \space \text{y} \\
 \text{Working Equation:} \space
 \frac{\text{dy}}{\text{dt}} = -k\text{y}; \text{where} \space k \space \text{is propotionality decay constant}
-```
+$$
 <div align= "center">
    <img src="images/radioactive.png" width="400px"/>
    <p><b>Fig 01:</b><i> Diagram illustrating Radioactive decay</i></p>
