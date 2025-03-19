@@ -20,9 +20,9 @@
 - The proper configuration can handle addition of several input voltages each representing the input variables.
 - The general method to apply analog computers for the simulation of continuous system models involve following components:
 
-
-![fig1](images/fig1.webp)
-
+<div align="center">
+    <img src="./images/fig1.webp" width="250px">
+</div>
 
 ## Continuous System Models
 - A continuous system is one in which the predominant activities of the system cause smooth changes in the attributes of the system entities. 
@@ -79,6 +79,8 @@ This equation is also known as the Fourier-Biot equation and provides the basic 
 The system takes feedback from the output i.e input is coupled with output. A significant factor in the performance of many systems is that coupling occurs between the input and output of the system. The term feedback is used to describe the phenomenon.  
 The example of feedback system in which there is continuous controlin the aircraft system.
 
+<div align= 'center'>
+
 ```mermaid
 graph LR
     G(Gyroscope)
@@ -87,6 +89,7 @@ graph LR
     
     G-->|"ε"|C-->A-->G
 ```
+</div>
 
 Here, the input is the **desired aircraft heading**, and the output is the **actual heading**. The gyroscope of the autopilot detects the difference between the two headings.
 
@@ -151,10 +154,10 @@ This is a **second-order differential equation** describing the system's respons
 ### Clock time in System Simulation
 
 > Q. Explain how do you update the clock time in system simulation.
-- CLock time is updated based on the following two models. 
+- Clock time is updated based on the following two models. 
         
     1. Fixed Time Step Model
-    2. Event to EVent Model
+    2. Event to Event Model
 
 #### 1. Fixed time step model:
 In this, the timer simulated by the computer is updated at a fixed time interval. The system is checked to see if any event has taken place during that interval. All the events which takes place during the time interval are considered to have occured simultaneously at the end of the interval.
@@ -164,6 +167,8 @@ It is also known as the next event model. In this the computer advances the time
 
 ## Clock time in system simulation
 ### 1. Fixed Step Model
+
+<div align= 'center'>
 
 ```mermaid
 flowchart TD
@@ -178,9 +183,11 @@ flowchart TD
     O --> X(Stop)
     D -- No --> T
 ```
-
+</div>
 
 ### 2. Event-to-event Model (Next-Event Simulation)
+
+<div align= 'center'>
 
 ```mermaid
 flowchart TD 
@@ -195,6 +202,7 @@ flowchart TD
     O --> X(Stop)
     D -- No --> F
 ```
+</div>
 
 ## Non stationary Possion process and Stationary Poissons Process
 
@@ -205,17 +213,15 @@ More specifically it can be defined as follows:
 The counting process `N(t)` is a non-stationary poisson process if:  
 a. The process has independent increments.  
 b. 
-$$
+
+```math
 P_r[N(t+dt) - N(t) ] =
 \begin{cases} 
 1 - \lambda(t) dt, & \text{if } N(t+dt) - N(t) = 0 \\
 \lambda(t) dt, & \text{if } N(t+dt) - N(t) = 1 \\
 o(dt), & \text{if } N(t+dt) - N(t) > 1
 \end{cases}
-$$
-
-
-
+```
 
 Where lambda(t) = the arrival rate at time t  
 dt = differential sized interval  
@@ -226,17 +232,14 @@ A counting process $N(t)$ is a stationary Poisson process with rate lambda if:
 a. THe process has independent increments  
 b. The process has stationary increments  
 c.
-$$
+```math
 P_r[N(t+dt) - N(t) ] =
 \begin{cases} 
 1 - \lambda dt, & \text{if } N(t+dt) - N(t) = 0 \\
 \lambda dt, & \text{if } N(t+dt) - N(t) = 1 \\
 o(dt), & \text{if } N(t+dt) - N(t) > 1
 \end{cases}
-$$
-
-
-
+```
 
 A non-stationary Poisson process can be transferred into a stationary Poisson process with arrival rate 1.  
 
@@ -295,9 +298,8 @@ Following are the three important characteristics of Monte Carlo Simulation:
 - Its input distribution must be known.
 - Its result must be known while performing an experiment.
 
-![fig3](images/fig3.webp)
-
 <div align="center">
+    <img src="./images/fig3.webp" height="400px">
    <p><b>Fig 03:</b><i> Flowchart of Monte Carlo Simulation</i></p>
 </div>
 
@@ -306,22 +308,14 @@ Following are the three important characteristics of Monte Carlo Simulation:
 
 Determine the value of *`PI(π)`* using Monte Carlo Simulation.
 
-![fig2](images/fig2.webp)
-
-
-$$
-\frac{\text{Area of quadrant of circle}}{Area\ of\ Rectangle} = \frac{Number\ of\ points\ inside\ the\ curve}{Number\ of\ points\ inside\ the\ rectangle}
-$$
+<div align="center">
+<img src="./images/fig2.webp" width="200px">
+</div>
 
 $$
-or, \frac{\frac{1}{4} * π * r^2}{r^2} = \frac{n}{N}
+P_\text{inside} = \frac{\text{Area of quadrant of circle}}{\text{Area of Square}} = \frac{\frac{1}{4}\times\pi r^2}{4r^2} = \frac{\pi}{16}
 $$
-
-$$
-or, π = \frac{4n}{N}
-$$
-
-We use random number generator method to determine the sample points that lie inside or outside the curve. let (x0,y0) be an initial guess for the sample point then from a linear congruential method of random number generation 
+We use random number generator method to determine the sample points that lie inside or outside the curve. let $(x_0,y_0)$ be an initial guess for the sample point then from a linear congruential method of random number generation 
 
 $$ 
 x_{i+1} = (ax_i + c) \mod m 
@@ -333,3 +327,17 @@ $$
 
 where a and c are constants, m is the  upper limit of generated random numbers.
 $$\text{If } y \leq y_i \text{ then increment } n.$$
+
+By generating $N_\text{total}$ random points in a sqare and counting $N_\text{inside}$, the ratio of points inside the quarter circle approximates $P\text{inside}$
+
+```math
+P_\text{inside} \approx \frac{N_\text{inside}}{N_\text{total}} 
+```
+On rearranging we get:
+
+```math
+\pi \approx 4 \times \frac{N_\text{inside}}{N_\text{total}} 
+```
+> **ⓘ Note:** 
+> - Larger $N_\text{total}$ results in better accuracy because more points reduce statstical error.
+> - The random sampling must be uniform to ensure unbiased estimation.
