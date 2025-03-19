@@ -404,7 +404,9 @@ code {
 <li>The proper configuration can handle addition of several input voltages each representing the input variables.</li>
 <li>The general method to apply analog computers for the simulation of continuous system models involve following components:</li>
 </ul>
-<p><img src="images/fig1.webp" alt="fig1"></p>
+<div align="center">
+    <img src="./images/fig1.webp" width="250px">
+</div>
 <h2 id="continuous-system-models">Continuous System Models</h2>
 <ul>
 <li>A continuous system is one in which the predominant activities of the system cause smooth changes in the attributes of the system entities.</li>
@@ -473,6 +475,7 @@ code {
 </blockquote>
 <p>The system takes feedback from the output i.e input is coupled with output. A significant factor in the performance of many systems is that coupling occurs between the input and output of the system. The term feedback is used to describe the phenomenon.<br>
 The example of feedback system in which there is continuous controlin the aircraft system.</p>
+<div align= 'center'>
 <pre><code class="language-mermaid"><div class="mermaid">graph LR
     G(Gyroscope)
     C(Control Surface)
@@ -480,6 +483,7 @@ The example of feedback system in which there is continuous controlin the aircra
     
     G-->|"ε"|C-->A-->G
 </div></code></pre>
+</div>
 <p>Here, the input is the <strong>desired aircraft heading</strong>, and the output is the <strong>actual heading</strong>. The gyroscope of the autopilot detects the difference between the two headings.</p>
 <p>A <strong>feedback loop</strong> is established by using this difference to operate the control surface. Since the change in heading affects the signal used to control the heading, the difference between the desired signal $Q_t$ and the actual heading $Q_0$ is called the <strong>error signal</strong>.</p>
 <p>Since it measures the extent to which the system deviates from the desired condition, it is denoted by
@@ -523,10 +527,10 @@ $$</p>
 </blockquote>
 <ul>
 <li>
-<p>CLock time is updated based on the following two models.</p>
+<p>Clock time is updated based on the following two models.</p>
 <ol>
 <li>Fixed Time Step Model</li>
-<li>Event to EVent Model</li>
+<li>Event to Event Model</li>
 </ol>
 </li>
 </ul>
@@ -536,6 +540,7 @@ $$</p>
 <p>It is also known as the next event model. In this the computer advances the time to the occurence of the next event. So it shifts from one event to the another event and the system state does not change in between. A track of the current time is kept when something interesting happens to the system.</p>
 <h2 id="clock-time-in-system-simulation">Clock time in system simulation</h2>
 <h3 id="1-fixed-step-model">1. Fixed Step Model</h3>
+<div align= 'center'>
 <pre><code class="language-mermaid"><div class="mermaid">flowchart TD
     S(Start) --> R(Record Input Dates)
     R --> G(Generate and store random data if any required)
@@ -548,7 +553,9 @@ $$</p>
     O --> X(Stop)
     D -- No --> T
 </div></code></pre>
+</div>
 <h3 id="2-event-to-event-model-next-event-simulation">2. Event-to-event Model (Next-Event Simulation)</h3>
+<div align= 'center'>
 <pre><code class="language-mermaid"><div class="mermaid">flowchart TD 
     S(Start) --> R[/Read Input Data/]
     R --> G[Generate and store random data if any required]
@@ -561,21 +568,21 @@ $$</p>
     O --> X(Stop)
     D -- No --> F
 </div></code></pre>
+</div>
 <h2 id="non-stationary-possion-process-and-stationary-poissons-process">Non stationary Possion process and Stationary Poissons Process</h2>
 <h3 id="non-stationary-poissons-process">Non Stationary Poissons Process</h3>
 <p>The non-stationary Poissons process is a Poissons process for which the arrival rate varies with time.<br>
 More specifically it can be defined as follows:</p>
 <p>The counting process <code>N(t)</code> is a non-stationary poisson process if:<br>
 a. The process has independent increments.<br>
-b.
-$$
-P_r[N(t+dt) - N(t) ] =
-\begin{cases}
-1 - \lambda(t) dt, &amp; \text{if } N(t+dt) - N(t) = 0 \
-\lambda(t) dt, &amp; \text{if } N(t+dt) - N(t) = 1 \
+b.</p>
+<pre class="hljs"><code><div>P_r[N(t+dt) - N(t) ] =
+\begin{cases} 
+1 - \lambda(t) dt, &amp; \text{if } N(t+dt) - N(t) = 0 \\
+\lambda(t) dt, &amp; \text{if } N(t+dt) - N(t) = 1 \\
 o(dt), &amp; \text{if } N(t+dt) - N(t) &gt; 1
 \end{cases}
-$$</p>
+</div></code></pre>
 <p>Where lambda(t) = the arrival rate at time t<br>
 dt = differential sized interval</p>
 <p>The definition is identical to the stationary Poissons process, with the exception that the arrival rate lambda(t) is now a function of time.</p>
@@ -583,15 +590,14 @@ dt = differential sized interval</p>
 <p>A counting process $N(t)$ is a stationary Poisson process with rate lambda if:<br>
 a. THe process has independent increments<br>
 b. The process has stationary increments<br>
-c.
-$$
-P_r[N(t+dt) - N(t) ] =
-\begin{cases}
-1 - \lambda dt, &amp; \text{if } N(t+dt) - N(t) = 0 \
-\lambda dt, &amp; \text{if } N(t+dt) - N(t) = 1 \
+c.</p>
+<pre class="hljs"><code><div>P_r[N(t+dt) - N(t) ] =
+\begin{cases} 
+1 - \lambda dt, &amp; \text{if } N(t+dt) - N(t) = 0 \\
+\lambda dt, &amp; \text{if } N(t+dt) - N(t) = 1 \\
 o(dt), &amp; \text{if } N(t+dt) - N(t) &gt; 1
 \end{cases}
-$$</p>
+</div></code></pre>
 <p>A non-stationary Poisson process can be transferred into a stationary Poisson process with arrival rate 1.</p>
 <h2 id="arrival-pattern">Arrival Pattern</h2>
 <p>Q. Define arrival pattern. Explain non-stationary Poisson process.</p>
@@ -651,23 +657,19 @@ Arrivals may occur at scheduled times or at random times. When at random times, 
 <li>Its input distribution must be known.</li>
 <li>Its result must be known while performing an experiment.</li>
 </ul>
-<p><img src="images/fig3.webp" alt="fig3"></p>
 <div align="center">
+    <img src="./images/fig3.webp" height="400px">
    <p><b>Fig 03:</b><i> Flowchart of Monte Carlo Simulation</i></p>
 </div>
 <p><em><strong>Example:</strong></em></p>
 <p>Determine the value of <em><code>PI(π)</code></em> using Monte Carlo Simulation.</p>
-<p><img src="images/fig2.webp" alt="fig2"></p>
+<div align="center">
+<img src="./images/fig2.webp" width="200px">
+</div>
 <p>$$
-\frac{\text{Area of quadrant of circle}}{Area\ of\ Rectangle} = \frac{Number\ of\ points\ inside\ the\ curve}{Number\ of\ points\ inside\ the\ rectangle}
-$$</p>
-<p>$$
-or, \frac{\frac{1}{4} * π * r^2}{r^2} = \frac{n}{N}
-$$</p>
-<p>$$
-or, π = \frac{4n}{N}
-$$</p>
-<p>We use random number generator method to determine the sample points that lie inside or outside the curve. let (x0,y0) be an initial guess for the sample point then from a linear congruential method of random number generation</p>
+P_\text{inside} = \frac{\text{Area of quadrant of circle}}{\text{Area of Square}} = \frac{\frac{1}{4}\times\pi r^2}{4r^2} = \frac{\pi}{16}
+$$
+We use random number generator method to determine the sample points that lie inside or outside the curve. let $(x_0,y_0)$ be an initial guess for the sample point then from a linear congruential method of random number generation</p>
 <p>$$
 x_{i+1} = (ax_i + c) \mod m
 $$</p>
@@ -676,6 +678,19 @@ y_{i+1} = (ay_i + c) \mod m
 $$</p>
 <p>where a and c are constants, m is the  upper limit of generated random numbers.
 $$\text{If } y \leq y_i \text{ then increment } n.$$</p>
+<p>By generating $N_\text{total}$ random points in a sqare and counting $N_\text{inside}$, the ratio of points inside the quarter circle approximates $P\text{inside}$</p>
+<pre class="hljs"><code><div>P_\text{inside} \approx \frac{N_\text{inside}}{N_\text{total}} 
+</div></code></pre>
+<p>On rearranging we get:</p>
+<pre class="hljs"><code><div>\pi \approx 4 \times \frac{N_\text{inside}}{N_\text{total}} 
+</div></code></pre>
+<blockquote>
+<p><strong>ⓘ Note:</strong></p>
+<ul>
+<li>Larger $N_\text{total}$ results in better accuracy because more points reduce statstical error.</li>
+<li>The random sampling must be uniform to ensure unbiased estimation.</li>
+</ul>
+</blockquote>
 
 </body>
 </html>
