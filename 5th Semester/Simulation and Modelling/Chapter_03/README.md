@@ -119,8 +119,15 @@ M|M|1
 Servers represent the entity that provides services to the customers. A system may consist of single servers or multiple servers.  
 
 **Queing Notation (Kendall's Notation)**
-
-```
+<style>
+        .text {
+            font-family: monospace;
+            white-space: pre-wrap;  /* Ensures the text wraps properly */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+<div class="text">
 Queuing Model
 │
 ├── Single Server
@@ -128,7 +135,7 @@ Queuing Model
 ├── Multiple Servers
 │
 └── Multiple Single Server Queues
-```
+</div>
 A queuing system is described by its calling population, the number of arrivals, the service mechanisms, system capacity and queuing discipline.  
 
 #### 1. Single Server Queue

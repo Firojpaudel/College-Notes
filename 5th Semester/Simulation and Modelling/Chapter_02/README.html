@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],         // For inline math like $a$
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],      // For display math like $$a$$
+            skipTags: ["script", "noscript", "style", "textarea"]  // Don’t skip "pre" or "code"
+        },
+        messageStyle: "none"  // Hides loading messages
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Find all <div> inside <pre class="hljs"><code>
+        var mathDivs = document.querySelectorAll('pre.hljs code div');
+        mathDivs.forEach(function(div) {
+            // Wrap the content with $$...$$ for display math
+            div.innerHTML = '$$' + div.innerHTML + '$$';
+        });
+    });
+</script>
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="unit-2-simulation-of-continuous-and-discrete-systems">Unit 2: Simulation of Continuous and Discrete Systems</h1>
+<h2 id="continuous-function-illustration">Continuous Function Illustration</h2>
+<div align="center">
+<img src="./images/continuous_function.png" width="500px">
+</div>
+<h2 id="discrete-system-illustration">Discrete System Illustration</h2>
+<div align="center">
+<img src="./images/discrete_system.png" width="500px">
+</div>
+<hr>
+<h2 id="analog-method-of-system-simulation">Analog Method of System Simulation</h2>
+<ul>
+<li>Analog computers are those computers that are unified with devices like adder and integral so as to simulate the continuous mathematical model of the system which generates continuous output.</li>
+<li>Analog method of system simulation is for use of analog computers and other analog devices in the simulation of continuous systems.</li>
+<li>The analog computation is sometimes called differential analyzer. Electronics analog computers for simulation are based on the use of high gain dc amplifiers called operational amplifiers. (Op-amps)</li>
+<li>In such analog computers, voltages are equated to mathematical variables and the op-amps can add and integrate these voltages.</li>
+<li>The proper configuration can handle addition of several input voltages each representing the input variables.</li>
+<li>The general method to apply analog computers for the simulation of continuous system models involve following components:</li>
+</ul>
+<p><img src="images/fig1.webp" alt="fig1"></p>
+<h2 id="continuous-system-models">Continuous System Models</h2>
+<ul>
+<li>A continuous system is one in which the predominant activities of the system cause smooth changes in the attributes of the system entities.</li>
+<li>When such a system is modelled mathematically the variables of the model representing the attributes are controlled by the continuous system.</li>
+<li>More generally in a continuous system the relationship describes the rate at which the variables representing the attributes change, so that the model circuit of differential equation.</li>
+</ul>
+<hr>
+<h2 id="differential-and-partial-differential-equation">Differential and partial differential equation</h2>
+<h3 id="1-differential-equation">1. Differential Equation:</h3>
+<ul>
+<li>A differential equation is an equation involving an unknown function and its derivative.</li>
+<li>The order of the differential equation is the order of the highest derivative of the unknown function involved in the equation.</li>
+</ul>
+<pre class="hljs"><code><div>\frac{dy}{dt} = f(y,t) ...........................\text{(i)}
+</div></code></pre>
+<hr>
+<h3 id="2-linear-differential-equation">2. Linear Differential Equation</h3>
+<ul>
+<li>
+<p>A linear differential equation of order <code>n</code> is a differential equation written in the following form.</p>
+<pre class="hljs"><code><div>a_n(x) d_n \frac{y}{dx^n} + a_{(n-1)}(x) + \frac{d_{(n-1)}(y)}{dx^(n-1)} + ... +a_1(x) \frac{dy}{dx}+ a_0(x)y = f(x)
+</div></code></pre>
+<p>where $$a_{n}(x), a_{(n-1)}(x), a_{1}(x), a_{0}(x)$$ are functions of <code>x</code> and <code>f(x)</code> is a function of <code>x</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-partial-differential-equation">3. Partial Differential Equation</h3>
+<ul>
+<li>When more than one independent variable occur in a differential equation the equation is said to be partial differential equation.</li>
+</ul>
+<p><em><strong>Example</strong></em>:</p>
+<ul>
+<li>
+<p>An equation describing the flow of heat in a three-dimensional body. There are four independent variables, representing the three dimensions and time and one dependent variable representing temperatures.</p>
+</li>
+<li>
+<p>The general heat conduction equation:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div>        \frac{d}{dx}(k.(\frac{dT}{dx})) + \frac{d}{dy}(k.(\frac{dT}{dy})) + \frac{d}{dz}(k.(\frac{dT}{dz})) + qv = \rho \space C_p \frac{dT}{dt}
+</div></code></pre>
+<ul>
+<li>where k is the material conductivity.</li>
+<li>$qv$ is the rate at which energy is generated per unit volume of the medium.</li>
+<li>$\rho$ is the density</li>
+<li>$C_p$ is the specific heat capacity.</li>
+</ul>
+<p>This equation is also known as the Fourier-Biot equation and provides the basic tool for heat conduction analysis.</p>
+<h2 id="interactive-and-feedback-system-in-simulation">Interactive and Feedback System in Simulation</h2>
+<blockquote>
+<h3 id="interactive-systems">Interactive Systems</h3>
+</blockquote>
+<ul>
+<li>
+<p>Interactive Systems are the computer systems characterized by significant amount of interaction between humans and the computer. Macintosh and Windows computer operating systems are prime examples of graphical interactive systems.</p>
+</li>
+<li>
+<p>Editors, CAD-CAM(Computer Aided Design - Computer Aided Manufacture) system, and data entry systems are all computer systems involving a high degree of human - computer interaction.</p>
+</li>
+<li>
+<p>Games and simulations are interactive systems. Web browsers and integrated development environments (IDE) are also examples of very complex interactive systems.</p>
+</li>
+</ul>
+<blockquote>
+<h3 id="feedback-systems">Feedback Systems</h3>
+</blockquote>
+<p>The system takes feedback from the output i.e input is coupled with output. A significant factor in the performance of many systems is that coupling occurs between the input and output of the system. The term feedback is used to describe the phenomenon.<br>
+The example of feedback system in which there is continuous controlin the aircraft system.</p>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+    G(Gyroscope)
+    C(Control Surface)
+    A(Air Frames)
+    
+    G-->|"ε"|C-->A-->G
+</div></code></pre>
+<p>Here, the input is the <strong>desired aircraft heading</strong>, and the output is the <strong>actual heading</strong>. The gyroscope of the autopilot detects the difference between the two headings.</p>
+<p>A <strong>feedback loop</strong> is established by using this difference to operate the control surface. Since the change in heading affects the signal used to control the heading, the difference between the desired signal $Q_t$ and the actual heading $Q_0$ is called the <strong>error signal</strong>.</p>
+<p>Since it measures the extent to which the system deviates from the desired condition, it is denoted by
+𝜖.</p>
+<p>$$
+\epsilon = Q_t - Q_0
+$$</p>
+<p>The torque acting on the system is given by:</p>
+<p>$$
+\text{Torque} = K\epsilon - D Q_0'
+$$</p>
+<p>Since we also know that torque is related to angular acceleration as:</p>
+<p>$$
+\text{Torque} = I Q_0''
+$$</p>
+<p>From equations (1), (2), and (3), we obtain:</p>
+<p>$$
+I Q_0'' + D Q_0' + K Q_0 = K Q_t \quad \text{(Equation 4)}
+$$</p>
+<p>$$Torque = K\epsilon - DQ_0'$$
+$$IQ_0'' = K(Q_t - Q_0) - DQ_0'$$
+$$IQ_0'' = KQ_t-KQ_0-DQ_0'$$
+$$IQ_0''+DQ_0+KQ_0 = KQ_t$$</p>
+<p>Dividing both sides by ( I ) and making the following substitutions:</p>
+<p>$$
+2E\omega = \frac{D}{I}, \quad \omega^2 = \frac{K}{I}
+$$</p>
+<p>We rewrite Equation (4) as:</p>
+<p>$$
+Q_0'' + \frac{D}{I} Q_0' + \frac{K}{I} Q_0 = \frac{K}{I} Q_t
+$$</p>
+<p>Substituting the defined parameters:</p>
+<p>$$
+Q_0'' + 2E\omega Q_0' + \omega^2 Q_0 = \omega^2 Q_t \quad \text{(Equation 5)}
+$$</p>
+<p>where ( E ) is the <strong>damping factor</strong>.</p>
+<p>This is a <strong>second-order differential equation</strong> describing the system's response.</p>
+<h3 id="clock-time-in-system-simulation">Clock time in System Simulation</h3>
+<blockquote>
+<p>Q. Explain how do you update the clock time in system simulation.</p>
+</blockquote>
+<ul>
+<li>
+<p>CLock time is updated based on the following two models.</p>
+<ol>
+<li>Fixed Time Step Model</li>
+<li>Event to EVent Model</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-fixed-time-step-model">1. Fixed time step model:</h4>
+<p>In this, the timer simulated by the computer is updated at a fixed time interval. The system is checked to see if any event has taken place during that interval. All the events which takes place during the time interval are considered to have occured simultaneously at the end of the interval.</p>
+<h4 id="2-event-to-event-model">2. Event-to-Event Model:</h4>
+<p>It is also known as the next event model. In this the computer advances the time to the occurence of the next event. So it shifts from one event to the another event and the system state does not change in between. A track of the current time is kept when something interesting happens to the system.</p>
+<h2 id="clock-time-in-system-simulation">Clock time in system simulation</h2>
+<h3 id="1-fixed-step-model">1. Fixed Step Model</h3>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    S(Start) --> R(Record Input Dates)
+    R --> G(Generate and store random data if any required)
+    G --> I(Initialize time t = 0)
+    I --> T(t = t + r)
+    T --> F[Find all those events that occur, update the system state]
+    F --> E[Extract their effects on statistics being gathered]
+    E --> D{End of statistics?}
+    D -- Yes --> O[Output desired statistics]
+    O --> X(Stop)
+    D -- No --> T
+</div></code></pre>
+<h3 id="2-event-to-event-model-next-event-simulation">2. Event-to-event Model (Next-Event Simulation)</h3>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD 
+    S(Start) --> R[/Read Input Data/]
+    R --> G[Generate and store random data if any required]
+    G --> I[Initialize]
+    I --> F[Find next potential event, and its time of occurrence]
+    F --> L[Let the event occur, update the system state and clock]
+    L --> E[Extract its effect on statistics being gathered]
+    E --> D{End of simulation?}
+    D -- Yes --> O(Output derived statistics)
+    O --> X(Stop)
+    D -- No --> F
+</div></code></pre>
+<h2 id="non-stationary-possion-process-and-stationary-poissons-process">Non stationary Possion process and Stationary Poissons Process</h2>
+<h3 id="non-stationary-poissons-process">Non Stationary Poissons Process</h3>
+<p>The non-stationary Poissons process is a Poissons process for which the arrival rate varies with time.<br>
+More specifically it can be defined as follows:</p>
+<p>The counting process <code>N(t)</code> is a non-stationary poisson process if:<br>
+a. The process has independent increments.<br>
+b.
+$$
+P_r[N(t+dt) - N(t) ] =
+\begin{cases}
+1 - \lambda(t) dt, &amp; \text{if } N(t+dt) - N(t) = 0 \
+\lambda(t) dt, &amp; \text{if } N(t+dt) - N(t) = 1 \
+o(dt), &amp; \text{if } N(t+dt) - N(t) &gt; 1
+\end{cases}
+$$</p>
+<p>Where lambda(t) = the arrival rate at time t<br>
+dt = differential sized interval</p>
+<p>The definition is identical to the stationary Poissons process, with the exception that the arrival rate lambda(t) is now a function of time.</p>
+<h3 id="stationary-poisson-process">Stationary Poisson Process</h3>
+<p>A counting process $N(t)$ is a stationary Poisson process with rate lambda if:<br>
+a. THe process has independent increments<br>
+b. The process has stationary increments<br>
+c.
+$$
+P_r[N(t+dt) - N(t) ] =
+\begin{cases}
+1 - \lambda dt, &amp; \text{if } N(t+dt) - N(t) = 0 \
+\lambda dt, &amp; \text{if } N(t+dt) - N(t) = 1 \
+o(dt), &amp; \text{if } N(t+dt) - N(t) &gt; 1
+\end{cases}
+$$</p>
+<p>A non-stationary Poisson process can be transferred into a stationary Poisson process with arrival rate 1.</p>
+<h2 id="arrival-pattern">Arrival Pattern</h2>
+<p>Q. Define arrival pattern. Explain non-stationary Poisson process.</p>
+<p>Arrival defines the way customers enter the system. Mostly the arrivals are random with random intervals between two adjacent arrivals.<br>
+Typically the arrival is described by a random distribution of intervals also called arrival pattern.<br>
+Arrivals may occur at scheduled times or at random times. When at random times, the inter arriva time are usually characterized by a probability distribution and most important model for random arrival i.e. the poisson process. IN schedule arrival interarrival time of customer are constant.</p>
+<h2 id="clock-time-vs-simulation-time">Clock Time vs Simulation Time</h2>
+<blockquote>
+<p>Q. Differentiate between clock time and simulation time used in system simulation.*</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Clock Time</th>
+<th>Simulation Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is the total amount of time for which the CPU remains active.</td>
+<td>It is the total amount of time that CPU spends for simulation.</td>
+</tr>
+<tr>
+<td>Clock time is measured continuously through all the operations that a CPU undergoes.</td>
+<td>Simulation time only deals with the amount of time elevated for simulation.</td>
+</tr>
+<tr>
+<td>It is usually more.</td>
+<td>It is usually less.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Example:</strong></em></p>
+<p>Let us take an example where CPU is running for 6 seconds and now it performs a calculation for 0.01 second and stops the calculation, again the CPU runs for 5 more seconds.</p>
+<p>So, <em><strong>Clock Time</strong></em> = <em><strong>Total time CPU is active</strong></em> = 6 + 5 = 11 seconds</p>
+<p>Similarly, <em><strong>Simulation Time</strong></em> = <em><strong>Total time CPU spends for calculation</strong></em> = 0.01 seconds</p>
+<hr>
+<h2 id="hybrid-simulation">Hybrid Simulation</h2>
+<blockquote>
+<p><em>Q. Explain Hybrid simulation with example.</em></p>
+</blockquote>
+<p>In reality, the system is of neither a pure continuous nor a pure discrete nature. For simulating such systems, the combination of analog and digital computers is used. Such setup is known as hybrid Computers.</p>
+<p>The simulation provided by the hybrid computers is known as hybrid simulation.</p>
+<p>The form taken by hybrid simulation depends upon the application. One computer may be simulating the system being studied while other is providing a simulation of the environment in which the system operates.</p>
+<p>It is also possible that the system being simulated is an interconnection of continuous and discrete systems, which can be best modeled by an analog and digital computer being linked together.</p>
+<p>The major difficulty in use of hybrid simulation is it requires high speed converters to transform signals from analog to digital form and vice-versa.</p>
+<hr>
+<h2 id="monte-carlo-simulation">Monte Carlo Simulation</h2>
+<blockquote>
+<p><em>Q. Explain Monte Carlo Simulation with example.</em></p>
+</blockquote>
+<p>Monte Carlo simulation is a computerized mathematical technique to generate random sample data based on some known distribution for numerical experiments.</p>
+<p>This method is applied to risk quantitative analysis, decision-making problems. This method is used by the professionals of various profiles like finance, project management, energy, manufacturing, engineering, research and development, insurance, oil &amp; gas, transportation, and many more.</p>
+<p>Following are the three important characteristics of Monte Carlo Simulation:</p>
+<ul>
+<li>Its output must generate random samples.</li>
+<li>Its input distribution must be known.</li>
+<li>Its result must be known while performing an experiment.</li>
+</ul>
+<p><img src="images/fig3.webp" alt="fig3"></p>
+<div align="center">
+   <p><b>Fig 03:</b><i> Flowchart of Monte Carlo Simulation</i></p>
+</div>
+<p><em><strong>Example:</strong></em></p>
+<p>Determine the value of <em><code>PI(π)</code></em> using Monte Carlo Simulation.</p>
+<p><img src="images/fig2.webp" alt="fig2"></p>
+<p>$$
+\frac{\text{Area of quadrant of circle}}{Area\ of\ Rectangle} = \frac{Number\ of\ points\ inside\ the\ curve}{Number\ of\ points\ inside\ the\ rectangle}
+$$</p>
+<p>$$
+or, \frac{\frac{1}{4} * π * r^2}{r^2} = \frac{n}{N}
+$$</p>
+<p>$$
+or, π = \frac{4n}{N}
+$$</p>
+<p>We use random number generator method to determine the sample points that lie inside or outside the curve. let (x0,y0) be an initial guess for the sample point then from a linear congruential method of random number generation</p>
+<p>$$
+x_{i+1} = (ax_i + c) \mod m
+$$</p>
+<p>$$
+y_{i+1} = (ay_i + c) \mod m
+$$</p>
+<p>where a and c are constants, m is the  upper limit of generated random numbers.
+$$\text{If } y \leq y_i \text{ then increment } n.$$</p>
+
+</body>
+</html>

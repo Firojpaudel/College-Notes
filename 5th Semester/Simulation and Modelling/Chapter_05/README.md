@@ -162,7 +162,7 @@ $$x_n = x_{n-s} * x_{n-r}(\text{mod} \space 2^k); r>s$$
 
     ***Example:***
 
-    1. Generate Random numbers with following data:$X_0=0; a=5 ; c=3 \space \& \space m=7$.
+    1. Generate Random numbers with following data: $X_0=0; a=5 ; c=3 \space \& \space m=7$.
 
     ***Answer:***
 

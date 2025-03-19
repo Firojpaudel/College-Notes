@@ -1,35 +1,15 @@
 # Unit 2: Simulation of Continuous and Discrete Systems
 
 ## Continuous Function Illustration
-```
-         f(x)
-           |
-         9 |                *
-           |             *
-         4 |          * 
-           |       *
-         1 |    *
-           |  *
-         0 +------------------> x
-            0   1   2   3   4
-```
+<div align="center">
+<img src="./images/continuous_function.png" width="500px">
+</div>
 
 ## Discrete System Illustration
-```
-    y[n]
-     |
-  10|        *       *       *       *
-     |
-    8|    *       *       *       *
-     |
-    6|       *       *       *
-     |
-    4| *       *       *       *
-     |
-    2|   *       *       *
-     +----------------------------------> n
-        0   1   2   3   4   5   6   7
-```
+<div align="center">
+<img src="./images/discrete_system.png" width="500px">
+</div>
+
 ---
 
 ## Analog Method of System Simulation
@@ -330,8 +310,7 @@ Determine the value of *`PI(π)`* using Monte Carlo Simulation.
 
 
 $$
-\frac{Area\ of\ quadrant\ of\ circle}{Area\ of\ Rectangle} = \frac{Number\ of\ points\ inside\ the\ curve}{Number\ of\ points\ inside\ the\ rectangle}
-
+\frac{\text{Area of quadrant of circle}}{Area\ of\ Rectangle} = \frac{Number\ of\ points\ inside\ the\ curve}{Number\ of\ points\ inside\ the\ rectangle}
 $$
 
 $$
